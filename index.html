@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biotech Iberia | Acuerdo Innova Ocular 2026</title>
-    <!-- Tailwind CSS -->
+    <title>Biotech | Acuerdo Innova Ocular 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide para iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -18,10 +16,9 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Espaciado de títulos profesional */
         h1, h2, h3, h4, h5 {
-            word-spacing: 0.18em;
-            letter-spacing: -0.01em;
+            word-spacing: 0.05em;
+            letter-spacing: -0.02em;
         }
 
         .tab-content { display: none; }
@@ -37,26 +34,12 @@
             box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2); 
         }
 
-        /* Bloque Pedidos estilo Kobel */
-        .font-kobel {
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        .card-premium {
-            background: white;
-            border: 1px solid #eef2f6;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
         .animate-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
         
-        .logo-container img { max-height: 60px; width: auto; object-fit: contain; }
+        .logo-container img { max-height: 55px; width: auto; object-fit: contain; }
         
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
@@ -77,477 +60,535 @@
             transition: all 0.2s;
             width: 100%;
         }
-        select:focus, input:focus, textarea:focus { border-color: #2563eb; ring: 3px ring-blue-50; }
+        select:focus, input:focus, textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
         
         .form-label { 
             font-size: 10px; 
             font-weight: 800; 
             text-transform: uppercase; 
             color: #64748b; 
-            letter-spacing: 0.1em; 
-            margin-bottom: 6px; 
+            letter-spacing: 0.05em; 
+            margin-bottom: 4px; 
             display: block;
         }
 
-        .contact-grid-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; }
-        
-        .email-link-action {
+        .email-nowrap {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-block;
             max-width: 100%;
-            justify-content: center;
+        }
+
+        .badge-new {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .confidential-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         @media (max-width: 768px) {
+            .logo-container img { max-height: 45px; }
             .contact-grid-row { grid-template-columns: 1fr; gap: 0.5rem; }
-            .mobile-center { text-align: center; }
+            .input-group-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+            .objectives-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 0.5rem; }
+            .objectives-grid h3 { font-size: 0.9rem !important; }
+            .objectives-grid p { font-size: 0.6rem !important; }
+            h1 { font-size: 2.25rem !important; }
         }
     </style>
 </head>
-<body class="text-slate-900 bg-slate-50 min-h-screen font-medium">
+<body class="text-slate-900 bg-slate-50 min-h-screen font-medium text-left">
 
     <div class="max-w-6xl mx-auto p-4 sm:p-8 lg:p-10 pb-20">
         <!-- CABECERA -->
-        <header class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 gap-8">
-            <div class="flex flex-col gap-5">
+        <header class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-6 text-left">
+            <div class="flex flex-col gap-4">
                 <div class="logo-container">
-                    <img src="logo_biotech.png.png" alt="Biotech Iberia" class="animate-in" onerror="this.style.display='none'">
+                    <img src="logo_biotech.png.png" alt="Biotech" class="animate-in" onerror="this.src='https://www.biotechhealthcare.com/wp-content/uploads/2021/04/biotech-logo.png'">
                 </div>
                 <div>
-                    <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded mb-2 shadow-sm">
-                        <i data-lucide="shield-check" class="w-3 h-3 text-white"></i> ACUERDO ESTRATÉGICO 2026
+                    <div class="inline-flex items-center gap-2 px-2.5 py-0.5 bg-blue-600 text-white text-[9px] font-bold uppercase tracking-widest rounded mb-1 shadow-sm">
+                        <i data-lucide="shield-check" class="w-3 h-3 text-white"></i> BIOTECH 2026
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter leading-none italic">Innova Ocular</h1>
+                    <h1 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tighter leading-none">Innova Ocular</h1>
                 </div>
             </div>
             
             <nav class="flex bg-white p-1 rounded-2xl shadow-sm border border-slate-200 overflow-x-auto no-scrollbar w-full lg:w-auto">
-                <button onclick="showTab('overview')" id="btn-overview" class="nav-btn active px-6 py-2.5 rounded-xl text-xs font-bold transition-all uppercase whitespace-nowrap">Estrategia</button>
-                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-6 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Tarifa</button>
-                <button onclick="showTab('logistic')" id="btn-logistic" class="nav-btn px-6 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Logística</button>
-                <button onclick="showTab('training')" id="btn-training" class="nav-btn px-6 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Formación</button>
-                <button onclick="showTab('marketing')" id="btn-marketing" class="nav-btn px-6 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Marketing</button>
+                <button onclick="showTab('overview')" id="btn-overview" class="nav-btn active px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold transition-all uppercase whitespace-nowrap">Objetivos 2026</button>
+                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Tarifa</button>
+                <button onclick="showTab('logistic')" id="btn-logistic" class="nav-btn px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Logística</button>
+                <button onclick="showTab('training')" id="btn-training" class="nav-btn px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Formación</button>
+                <button onclick="showTab('marketing')" id="btn-marketing" class="nav-btn px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Marketing</button>
+                <button onclick="showTab('clinical')" id="btn-clinical" class="nav-btn px-4 sm:px-6 py-2 rounded-xl text-[10px] sm:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Estudios Clínicos</button>
             </nav>
         </header>
 
-        <!-- PESTAÑA 1: ESTRATEGIA -->
-        <div id="overview" class="tab-content active space-y-8 animate-in">
+        <!-- PESTAÑA 1: OBJETIVOS 2026 -->
+        <div id="overview" class="tab-content active space-y-6 animate-in">
             
-            <!-- KPIs OBJETIVOS -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-medium">
-                <div class="bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-                        <i data-lucide="eye" size="24"></i>
+            <div class="flex items-center gap-4 mb-2">
+                <div class="h-8 w-1.5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-2xl font-black text-slate-900 uppercase tracking-tight">Objetivos de Biotech</h2>
+            </div>
+
+            <!-- KPIs OBJETIVOS ANUALES -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 objectives-grid">
+                <div class="bg-white p-3 sm:p-6 rounded-[24px] border border-slate-100 shadow-sm flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                        <i data-lucide="eye" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </div>
                     <div>
-                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Lentes Pseudofáquicas</p>
-                        <h3 class="text-xl font-extrabold text-slate-900 tracking-tight">2.500 <span class="text-[10px] text-slate-400 font-bold uppercase">uds / año</span></h3>
-                        <p class="text-[9px] font-bold text-blue-500 uppercase mt-1 opacity-80">~208 uds mensuales</p>
+                        <p class="text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Pseudofáquicas</p>
+                        <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 tracking-tight">2.500 <span class="hidden sm:inline text-[10px] text-slate-400 font-bold uppercase">uds</span></h3>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0 shadow-inner font-bold italic">
-                        <i data-lucide="award" size="24"></i>
+                <div class="bg-white p-3 sm:p-6 rounded-[24px] border border-slate-100 shadow-sm flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0 shadow-inner">
+                        <i data-lucide="award" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </div>
                     <div>
-                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1 font-bold">Lentes Fáquicas</p>
-                        <h3 class="text-xl font-extrabold text-slate-900 tracking-tight">150 <span class="text-[10px] text-slate-400 font-bold uppercase">uds / año</span></h3>
-                        <p class="text-[9px] font-bold text-indigo-500 uppercase mt-1 font-bold opacity-80">~13 uds mensuales</p>
+                        <p class="text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Fáquicas</p>
+                        <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 tracking-tight">150 <span class="hidden sm:inline text-[10px] text-slate-400 font-bold uppercase">uds</span></h3>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm flex items-center gap-4 sm:col-span-2 lg:col-span-1 font-bold">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
-                        <i data-lucide="droplets" size="24"></i>
+                <div class="bg-white p-3 sm:p-6 rounded-[24px] border border-slate-100 shadow-sm flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+                        <i data-lucide="droplets" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </div>
                     <div>
-                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Viscoelásticos</p>
-                        <h3 class="text-xl font-extrabold text-slate-900 tracking-tight">3.500 <span class="text-[10px] text-slate-400 font-bold uppercase">uds / año</span></h3>
-                        <p class="text-[9px] font-bold text-emerald-500 uppercase mt-1 font-bold opacity-80">~292 uds mensuales</p>
+                        <p class="text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Viscos</p>
+                        <h3 class="text-sm sm:text-xl font-extrabold text-slate-900 tracking-tight">3.500 <span class="hidden sm:inline text-[10px] text-slate-400 font-bold uppercase">uds</span></h3>
                     </div>
                 </div>
             </div>
 
-            <!-- SIMULADOR PLANIFICACIÓN -->
-            <div class="bg-slate-900 p-8 sm:p-10 rounded-[32px] sm:rounded-[40px] text-white shadow-2xl relative overflow-hidden font-medium">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] -mr-32 -mt-32 leading-tight"></div>
-                <div class="relative z-10">
-                    <div class="flex justify-between items-center mb-8 border-b border-white/10 pb-6 leading-tight">
+            <!-- SIMULADOR ESTIMADO -->
+            <div class="bg-slate-900 p-6 sm:p-10 rounded-[32px] text-white shadow-2xl relative overflow-hidden text-left">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+                <div class="relative z-10 text-left">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-white/10 pb-6 gap-4">
                         <div>
                             <p class="text-blue-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 mb-1">
-                                <i data-lucide="calculator" class="w-3 h-3 text-blue-400"></i> Planificación Estratégica
+                                <i data-lucide="calculator" class="w-3 h-3 text-blue-400"></i> Proyección Estratégica
                             </p>
-                            <h3 class="text-2xl font-extrabold uppercase tracking-tight">Calculadora de Rappel de Grupo</h3>
+                            <h3 class="text-2xl font-extrabold uppercase tracking-tight">Simulador de Rappel Anual</h3>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center text-left">
                         <div>
-                            <p class="text-slate-500 text-[10px] font-bold uppercase mb-3 uppercase">Simular Facturación Anual Estimada</p>
-                            <h2 id="group-display" class="text-5xl sm:text-6xl font-extrabold mb-6 tracking-tighter tabular-nums text-white italic">750.000 €</h2>
+                            <p class="text-slate-500 text-[10px] font-bold uppercase mb-3">Facturación Anual Estimada</p>
+                            <h2 id="group-display" class="text-5xl sm:text-6xl font-black mb-6 tracking-tighter tabular-nums text-white">750.000 €</h2>
                             <input type="range" id="group-slider" min="100000" max="2500000" step="50000" value="750000" oninput="updateGroupSim(this.value)" class="w-full mb-4">
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center">
-                                <p class="text-slate-500 text-[9px] font-bold uppercase mb-1">Abono Anual</p>
-                                <p id="group-cash" class="text-xl sm:text-2xl font-extrabold text-emerald-400 tabular-nums leading-none">18.750 €</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-4 sm:p-6 bg-white/5 rounded-2xl border border-white/10 text-center">
+                                <p class="text-slate-500 text-[9px] font-bold uppercase mb-1">Abono Neto Anual</p>
+                                <p id="group-cash" class="text-xl sm:text-2xl font-black text-emerald-400 tabular-nums">18.750 €</p>
                             </div>
-                            <div class="p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30 text-center">
+                            <div class="p-4 sm:p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30 text-center">
                                 <p class="text-blue-300 text-[9px] font-bold uppercase mb-1">Tramo Rappel</p>
-                                <p id="group-percent" class="text-xl sm:text-2xl font-extrabold text-blue-400 tabular-nums leading-none">2.5%</p>
+                                <p id="group-percent" class="text-xl sm:text-2xl font-black text-blue-400 tabular-nums">2,5%</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SIMULACIÓN EVOLUCIÓN (REAL) -->
-            <div class="bg-white p-8 sm:p-12 rounded-[40px] border-2 border-slate-100 shadow-xl relative overflow-hidden font-medium">
-                <div class="absolute top-0 right-0 p-8 opacity-5 text-blue-600 font-bold italic"><i data-lucide="line-chart" size="150"></i></div>
-                <div class="relative z-10">
-                    <div class="flex flex-col lg:flex-row justify-between items-start gap-10 mb-12">
+            <!-- CALCULADORA DE CIERRE REAL -->
+            <div class="bg-white p-6 sm:p-12 rounded-[40px] border-2 border-slate-100 shadow-xl relative overflow-hidden text-left">
+                <div class="absolute top-0 right-0 p-8 opacity-5 text-blue-600 font-bold"><i data-lucide="calendar-check" size="150"></i></div>
+                <div class="relative z-10 text-left">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-6 mb-8 border-b border-slate-50 pb-8 text-left">
                         <div class="max-w-2xl text-left">
-                            <span class="px-2 py-1 bg-slate-900 text-white text-[9px] font-bold uppercase tracking-widest rounded mb-3 inline-block">Control de Gerencia</span>
-                            <h3 class="text-3xl font-extrabold text-slate-900 uppercase tracking-tight mb-3 italic">Simulación Evolución Rappel</h3>
-                            <p class="text-slate-500 text-xs font-medium leading-relaxed max-w-lg">
-                                Introduzca la facturación acumulada actual para simular el tramo de bonificación actual y el progreso hacia el siguiente escalado de ahorro corporativo.
-                            </p>
-                        </div>
-                        <div class="w-full lg:w-80 flex flex-col items-center">
-                            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-inner mb-4 w-full">
-                                <label class="form-label text-slate-700 font-bold mb-2 italic">Importe Acumulado Actual (€)</label>
-                                <div class="relative">
-                                    <input type="number" id="actual-billing-input" placeholder="0.00" oninput="updateBillingProgress(this.value)" class="text-xl font-extrabold text-blue-700 bg-white border-slate-200">
-                                    <i data-lucide="euro" class="absolute right-4 top-1/2 -translate-y-1/2 text-blue-200" size="18"></i>
+                            <span class="px-2 py-1 bg-blue-600 text-white text-[9px] font-bold uppercase tracking-widest rounded mb-2 inline-block">Cierre de Periodo</span>
+                            <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-2">Calculadora de Cierre</h3>
+                            
+                            <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl mt-4 animate-in text-left">
+                                <div class="flex items-start gap-3">
+                                    <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <p class="text-[10px] sm:text-xs font-bold text-amber-800 leading-relaxed text-left">
+                                            El envío de este cierre es <span class="text-amber-950 font-black">OPCIONAL</span>, pero altamente recomendable para <span class="underline">agilizar el abono del rappel</span>. El pago se realizará de forma <span class="font-black">ANUAL</span>. Puede reportar por Qs o al final del año.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <button onclick="triggerAnnualClosure()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition-all uppercase text-[10px] tracking-widest flex items-center justify-center gap-2">
-                                <i data-lucide="send" size="14"></i> Cierre Anual
-                            </button>
-                            <p class="text-[9px] text-slate-400 mt-3 text-center font-bold uppercase tracking-widest opacity-80">Reporte automatizado a Dirección Estratégica</p>
+
+                            <div class="flex gap-2 flex-wrap mt-6 text-left">
+                                <button onclick="setReportPeriod('Q1')" class="period-btn px-4 py-2 bg-slate-100 rounded-xl text-[10px] font-bold uppercase text-slate-600 hover:bg-blue-100 transition-all">Q1</button>
+                                <button onclick="setReportPeriod('Q2')" class="period-btn px-4 py-2 bg-slate-100 rounded-xl text-[10px] font-bold uppercase text-slate-600 hover:bg-blue-100 transition-all">Q2</button>
+                                <button onclick="setReportPeriod('Q3')" class="period-btn px-4 py-2 bg-slate-100 rounded-xl text-[10px] font-bold uppercase text-slate-600 hover:bg-blue-100 transition-all">Q3</button>
+                                <button onclick="setReportPeriod('Q4')" class="period-btn px-4 py-2 bg-slate-100 rounded-xl text-[10px] font-bold uppercase text-slate-600 hover:bg-blue-100 transition-all">Q4</button>
+                                <button onclick="setReportPeriod('Anual')" class="period-btn px-4 py-2 bg-slate-900 rounded-xl text-[10px] font-bold uppercase text-white hover:bg-slate-700 transition-all active-period">Anual</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-2 space-y-6 flex flex-col justify-center">
-                            <div class="flex justify-between items-end mb-1">
-                                <p class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Progreso del Objetivo</p>
-                                <p id="progress-text" class="text-xs font-extrabold text-blue-600">0% alcanzado</p>
-                            </div>
-                            <div class="w-full h-4 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-100">
-                                <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-1000 ease-out shadow-sm" style="width: 0%"></div>
-                            </div>
-                            <div id="next-step-box" class="p-5 bg-blue-50/50 rounded-2xl border border-blue-100 flex items-center gap-4 italic font-bold">
-                                <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-blue-500 shadow-sm shrink-0"><i data-lucide="zap" size="20"></i></div>
-                                <div id="next-step-text" class="text-xs font-semibold text-slate-600 leading-relaxed italic">Introduzca datos de consumo para cálculo de hito.</div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
+                        <div class="space-y-4 p-5 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                            <div class="space-y-4 text-left">
+                                <div>
+                                    <label class="form-label text-slate-500 text-left">Pseudofáquicas (Uds / €)</label>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <input type="number" id="q-pseudo-qty" placeholder="Uds" oninput="updateQProgress()" class="text-center font-bold">
+                                        <input type="number" id="q-pseudo-euro" placeholder="Total €" oninput="updateQProgress()" class="text-center font-bold">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label text-slate-500 text-left">Fáquicas (Uds / €)</label>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <input type="number" id="q-phakic-qty" placeholder="Uds" oninput="updateQProgress()" class="text-center font-bold">
+                                        <input type="number" id="q-phakic-euro" placeholder="Total €" oninput="updateQProgress()" class="text-center font-bold">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label text-slate-500 text-left">Viscos (Uds / €)</label>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <input type="number" id="q-visco-qty" placeholder="Uds" oninput="updateQProgress()" class="text-center font-bold">
+                                        <input type="number" id="q-visco-euro" placeholder="Total €" oninput="updateQProgress()" class="text-center font-bold">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 lg:grid-cols-1 gap-4 text-center">
-                            <div class="p-6 bg-slate-900 rounded-[28px] text-white shadow-xl flex flex-col justify-center font-bold">
-                                <p class="text-slate-500 text-[9px] font-bold uppercase mb-1">Rappel Generado</p>
-                                <p id="acc-rappel-cash" class="text-xl sm:text-2xl font-extrabold text-emerald-400 tabular-nums">0 €</p>
+
+                        <div class="flex flex-col justify-between space-y-6 text-left">
+                            <div class="p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 space-y-5 text-left">
+                                <h4 class="text-[9px] font-black uppercase text-slate-400 tracking-widest text-left">Consecución por Categoría</h4>
+                                <div class="space-y-4 text-left">
+                                    <div>
+                                        <div class="flex justify-between text-[9px] font-bold text-slate-500 mb-1 uppercase"><span>Pseudofáquicas</span><span id="pseudo-p-text" class="text-blue-600">0%</span></div>
+                                        <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden"><div id="pseudo-p-bar" class="h-full bg-blue-500 transition-all duration-700" style="width: 0%"></div></div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-[9px] font-bold text-slate-500 mb-1 uppercase"><span>Fáquicas</span><span id="phakic-p-text" class="text-indigo-600">0%</span></div>
+                                        <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden"><div id="phakic-p-bar" class="h-full bg-indigo-500 transition-all duration-700" style="width: 0%"></div></div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-[9px] font-bold text-slate-500 mb-1 uppercase"><span>Viscoelásticos</span><span id="visco-p-text" class="text-emerald-600">0%</span></div>
+                                        <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden"><div id="visco-p-bar" class="h-full bg-emerald-500 transition-all duration-700" style="width: 0%"></div></div>
+                                    </div>
+                                </div>
+                                <div class="pt-4 border-t border-slate-200 flex justify-between items-center text-left">
+                                    <div><p class="text-[9px] font-black uppercase text-blue-600">Rappel Alcanzado</p><p id="q-rappel-cash" class="text-2xl font-black text-blue-900 leading-none">0 €</p></div>
+                                    <div class="text-right"><p class="text-[9px] font-black uppercase text-slate-400">Tramo</p><p id="q-rappel-percent" class="text-2xl font-black text-blue-600 leading-none">0,0%</p></div>
+                                </div>
                             </div>
-                            <div class="p-6 bg-blue-50 rounded-[28px] border border-blue-100 shadow-sm flex flex-col justify-center font-bold">
-                                <p class="text-blue-400 text-[9px] font-bold uppercase mb-1">Tramo Alcanzado</p>
-                                <p id="acc-rappel-percent" class="text-xl sm:text-2xl font-extrabold text-blue-800 tabular-nums">0.0%</p>
-                            </div>
+                            <button onclick="sendQReport()" id="report-send-btn" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-blue-600 transition-all uppercase text-[10px] tracking-widest flex items-center justify-center gap-3 font-black"><i data-lucide="send" size="14"></i> Enviar Reporte Anual</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PEDIDOS Y SOPORTE -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-sm font-medium leading-tight">
-                <!-- MÓDULO PEDIDOS -->
-                <div class="bg-blue-600 p-8 sm:p-12 rounded-[40px] text-white shadow-2xl relative overflow-hidden flex flex-col justify-center text-center">
-                    <div class="absolute top-0 right-0 p-10 opacity-10 font-black"><i data-lucide="shopping-bag" size="140"></i></div>
-                    <div class="relative z-10 font-black">
-                        <h3 class="font-kobel text-4xl sm:text-5xl mb-10 flex items-center justify-center gap-5">
-                            <i data-lucide="shopping-cart" size="36"></i> PEDIDOS
-                        </h3>
-                        <div class="space-y-6 max-w-lg mx-auto font-bold">
-                            <div class="bg-white/10 p-6 sm:p-8 rounded-3xl border border-white/20 shadow-lg flex flex-col items-center">
-                                <p class="text-blue-100 text-[9px] font-bold uppercase mb-3 tracking-widest italic opacity-90 font-black">Canal Suministro Logístico</p>
-                                <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-base sm:text-lg font-extrabold hover:text-blue-200 transition-colors email-link-action">
-                                    <span class="email-nowrap font-bold">pedidos.iberia@biotechhealthcare.com</span>
-                                    <i data-lucide="mail" size="18" class="shrink-0 opacity-60"></i>
-                                </a>
-                            </div>
-                            <div class="bg-emerald-500/25 p-6 sm:p-8 rounded-3xl border border-emerald-400/30 shadow-lg flex flex-col items-center">
-                                <div class="flex items-center justify-center gap-3 mb-2 italic">
-                                    <i data-lucide="receipt" size="18" class="text-emerald-300"></i>
-                                    <h4 class="font-extrabold text-lg sm:text-xl uppercase tracking-tight">FACTURACIÓN</h4>
-                                </div>
-                                <p class="text-emerald-100 text-[10px] font-semibold uppercase mb-2 tracking-widest opacity-80 leading-none italic font-bold">Ref: Ana Montasell</p>
-                                <a href="mailto:ana.montasell@biotechhealthcare.com" class="text-sm sm:text-base font-bold hover:text-emerald-200 email-link-action font-bold italic">
-                                    <span class="email-nowrap font-bold">ana.montasell@biotechhealthcare.com</span>
-                                    <i data-lucide="mail" size="16" class="shrink-0 opacity-60"></i>
-                                </a>
-                            </div>
-                        </div>
+            <!-- MÓDULO PEDIDOS Y FACTURACIÓN -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 text-left">
+                <!-- Pedidos -->
+                <div class="p-6 bg-blue-600 rounded-[32px] text-white shadow-xl flex flex-col justify-between relative overflow-hidden h-[180px] text-left">
+                    <div class="absolute top-0 right-0 p-6 opacity-10"><i data-lucide="shopping-cart" size="70"></i></div>
+                    <div class="text-left">
+                        <h4 class="font-black text-lg uppercase tracking-tight mb-2 text-left">Pedidos y Suministro</h4>
+                        <p class="text-[10px] text-blue-100 font-bold uppercase opacity-80 mb-4 italic text-left">Central Logística Biotech</p>
                     </div>
+                    <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-sm font-black hover:text-blue-200 transition-colors email-nowrap underline text-left">pedidos.iberia@biotechhealthcare.com</a>
                 </div>
+                <!-- Facturación -->
+                <div class="p-6 bg-emerald-600 rounded-[32px] text-white shadow-xl flex flex-col justify-between relative overflow-hidden h-[180px] text-left">
+                    <div class="absolute top-0 right-0 p-6 opacity-10"><i data-lucide="receipt" size="70"></i></div>
+                    <div class="text-left">
+                        <h4 class="font-black text-lg uppercase tracking-tight mb-2 text-left">Administración</h4>
+                        <p class="text-[10px] text-emerald-100 font-bold uppercase opacity-80 mb-4 italic text-left">Ref: Ana Montasell</p>
+                    </div>
+                    <a href="mailto:ana.montasell@biotechhealthcare.com" class="text-sm font-black hover:text-emerald-200 transition-colors email-nowrap underline text-left">ana.montasell@biotechhealthcare.com</a>
+                </div>
+            </div>
 
-                <!-- SOPORTE -->
-                <div class="bg-white p-8 sm:p-12 rounded-[40px] border border-slate-100 shadow-xl flex flex-col h-full italic">
-                    <h3 class="font-extrabold text-2xl uppercase tracking-tight text-slate-800 mb-10 flex items-center gap-4 not-italic font-bold">
-                        <i data-lucide="headset" class="text-blue-600 font-bold"></i> Soporte de Equipo
-                    </h3>
-                    <div class="space-y-4 flex-1 flex flex-col justify-center not-italic font-medium">
-                        <!-- Sud -->
-                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 contact-grid-row">
-                            <div class="overflow-hidden">
-                                <span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest font-bold">Zona Sur</span>
-                                <p class="text-slate-900 font-extrabold text-sm mb-0.5 font-bold italic text-left">Juan Pérez Lanzac</p>
-                                <a href="mailto:juanperez.lanzac@biotechhealthcare.com" class="text-slate-400 text-[10px] email-nowrap flex items-center gap-2">
-                                    <span>juanperez.lanzac@biotechhealthcare.com</span>
-                                    <i data-lucide="mail" size="12"></i>
-                                </a>
-                            </div>
-                            <div class="flex justify-end"><a href="https://wa.me/34657084190" target="_blank" class="bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center gap-2 transition-all hover:border-green-300"><i data-lucide="message-circle" class="w-5 h-5 text-green-500 shrink-0"></i> <span class="text-xs tabular-nums font-bold text-slate-700">+34 657 084 190</span></a></div>
-                        </div>
-                        <!-- Centro -->
-                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-100 contact-grid-row">
-                            <div class="overflow-hidden font-bold">
-                                <span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest font-bold">Norte, Centro y Canarias</span>
-                                <p class="text-slate-900 font-extrabold text-sm mb-0.5 font-bold italic text-left">Ly García</p>
-                                <a href="mailto:ly.garcia@biotechhealthcare.com" class="text-slate-400 text-[10px] email-nowrap flex items-center gap-2 font-bold">
-                                    <span>ly.garcia@biotechhealthcare.com</span>
-                                    <i data-lucide="mail" size="12"></i>
-                                </a>
-                            </div>
-                            <div class="flex justify-end font-bold"><a href="https://wa.me/34652898188" target="_blank" class="bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center gap-2 transition-all hover:border-green-300"><i data-lucide="message-circle" class="w-5 h-5 text-green-500 shrink-0 font-bold italic"></i> <span class="text-xs tabular-nums font-bold text-slate-700 italic">+34 652 89 81 88</span></a></div>
-                        </div>
-                        <!-- Cat / Bal -->
-                        <div class="p-5 bg-slate-50 rounded-[28px] border border-slate-100 space-y-5">
-                            <span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest block font-bold font-bold font-bold">Cataluña y Baleares</span>
-                            <div class="contact-grid-row">
-                                <div class="overflow-hidden font-bold">
-                                    <p class="text-slate-900 font-extrabold text-sm mb-0.5 font-bold italic text-left">Vanessa García</p>
-                                    <a href="mailto:vanessa.garcia@biotechhealthcare.com" class="text-slate-400 text-[10px] flex items-center gap-2 font-bold font-bold italic">
-                                        <span>vanessa.garcia@biotechhealthcare.com</span>
-                                        <i data-lucide="mail" size="12"></i>
-                                    </a>
-                                </div>
-                                <div class="flex justify-end font-bold"><a href="https://wa.me/34648651014" target="_blank" class="bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center gap-2 transition-all hover:border-green-300"><i data-lucide="message-circle" class="w-4 h-4 text-green-500 shrink-0"></i> <span class="text-xs tabular-nums font-bold text-slate-700 font-bold italic">+34 648 65 10 14</span></a></div>
-                            </div>
-                            <div class="pt-3 border-t border-slate-200 contact-grid-row font-bold">
-                                <div class="overflow-hidden font-bold italic font-bold text-left">
-                                    <p class="text-slate-900 font-extrabold text-sm mb-0.5 font-bold italic font-bold">Marta Bautista</p>
-                                    <a href="mailto:marta.bautista@biotechhealthcare.com" class="text-slate-400 text-[10px] flex items-center gap-2 font-bold italic text-left">
-                                        <span>marta.bautista@biotechhealthcare.com</span>
-                                        <i data-lucide="mail" size="12"></i>
-                                    </a>
-                                </div>
-                                <div class="flex justify-end font-bold"><a href="https://wa.me/34661318161" target="_blank" class="bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center gap-2 font-bold italic transition-all hover:border-green-300"><i data-lucide="message-circle" class="w-5 h-5 text-green-500 shrink-0 font-bold italic"></i> <span class="text-xs tabular-nums font-bold text-slate-700 font-bold italic">+34 661 31 81 61</span></a></div>
-                            </div>
-                        </div>
+            <!-- EQUIPO DETALLADO (RESTAURADO) -->
+            <div class="bg-white p-8 sm:p-12 rounded-[40px] border border-slate-100 shadow-xl flex flex-col text-left">
+                <h3 class="font-extrabold text-2xl uppercase tracking-tight text-slate-800 mb-10 flex items-center gap-4 text-left">
+                    <i data-lucide="users" class="text-blue-600 font-black"></i> Equipo de Soporte Técnico Biotech
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4 text-left">
+                        <div class="text-left"><span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest text-left">Sur</span><p class="text-slate-900 font-extrabold text-sm mb-0.5 text-left">Juan Pérez Lanzac</p><span class="text-slate-400 text-[10px] email-nowrap underline text-left">juanperez.lanzac@biotechhealthcare.com</span></div>
+                        <a href="https://wa.me/34657084190" target="_blank" class="bg-white px-3 py-2.5 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center justify-center gap-2 hover:border-green-300 transition-colors"><i data-lucide="message-circle" class="w-4 h-4 text-green-500"></i> <span class="text-[10px]">+34 657 084 190</span></a>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4 text-left">
+                        <div class="text-left"><span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest text-left">Centro / Norte</span><p class="text-slate-900 font-extrabold text-sm mb-0.5 text-left">Ly García</p><span class="text-slate-400 text-[10px] email-nowrap underline text-left">ly.garcia@biotechhealthcare.com</span></div>
+                        <a href="https://wa.me/34652898188" target="_blank" class="bg-white px-3 py-2.5 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center justify-center gap-2 hover:border-green-300 transition-colors"><i data-lucide="message-circle" class="w-4 h-4 text-green-500"></i> <span class="text-[10px]">+34 652 89 81 88</span></a>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4 text-left">
+                        <div class="text-left"><span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest text-left">CAT / BAL</span><p class="text-slate-900 font-extrabold text-sm mb-0.5 text-left">Vanessa García</p><span class="text-slate-400 text-[10px] email-nowrap underline text-left">vanessa.garcia@biotechhealthcare.com</span></div>
+                        <a href="https://wa.me/34648651014" target="_blank" class="bg-white px-3 py-2.5 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center justify-center gap-2 hover:border-green-300 transition-colors"><i data-lucide="message-circle" class="w-4 h-4 text-green-500"></i> <span class="text-[10px]">+34 648 65 10 14</span></a>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4 text-left">
+                        <div class="text-left"><span class="font-bold text-blue-600 uppercase text-[8px] tracking-widest text-left">CAT / BAL</span><p class="text-slate-900 font-extrabold text-sm mb-0.5 text-left">Marta Bautista</p><span class="text-slate-400 text-[10px] email-nowrap underline text-left">marta.bautista@biotechhealthcare.com</span></div>
+                        <a href="https://wa.me/34661318161" target="_blank" class="bg-white px-3 py-2.5 rounded-xl shadow-sm border border-slate-100 font-bold flex items-center justify-center gap-2 hover:border-green-300 transition-colors"><i data-lucide="message-circle" class="w-4 h-4 text-green-500"></i> <span class="text-[10px]">+34 661 31 81 61</span></a>
                     </div>
                 </div>
             </div>
+
+            <!-- ACUERDO DE CONFIDENCIALIDAD -->
+            <div id="confidential-footer-tab-1" class="confidential-card"></div>
         </div>
 
-        <!-- PESTAÑA 2: TARIFA 2026 (INTEGRA TODO) -->
-        <div id="catalog" class="tab-content space-y-8 animate-in text-sm font-medium leading-tight">
-            <div class="bg-white rounded-[40px] border border-slate-100 shadow-xl overflow-hidden font-medium text-sm font-bold shadow-slate-100">
-                <div class="p-8 border-b border-slate-50 bg-slate-50/30 flex flex-col sm:flex-row justify-between items-center font-bold">
-                    <h3 class="font-extrabold text-2xl sm:text-3xl uppercase tracking-tighter text-slate-800 leading-none italic font-black">
-                        <i data-lucide="list-checks" class="text-blue-600 w-6 h-6 inline-block mr-2 font-bold italic font-black"></i> Catálogo Tarifario 2026
+        <!-- PESTAÑA 2: TARIFA -->
+        <div id="catalog" class="tab-content space-y-6 animate-in text-sm text-left">
+            <div class="bg-white rounded-[40px] border border-slate-100 shadow-xl overflow-hidden text-left">
+                <div class="p-6 sm:p-8 border-b border-slate-50 bg-slate-50/30 text-left">
+                    <h3 class="font-black text-2xl sm:text-3xl uppercase tracking-tighter text-slate-800 leading-none text-left">
+                        <i data-lucide="list-checks" class="text-blue-600 w-6 h-6 inline-block mr-2 font-black"></i> Catálogo Biotech 2026
                     </h3>
                 </div>
-                <div class="overflow-x-auto font-bold italic leading-tight">
-                    <table class="w-full text-left border-collapse font-medium text-sm font-bold italic">
-                        <thead class="bg-slate-50 border-b font-black leading-tight italic font-bold text-slate-400 uppercase tracking-widest text-[10px]">
+                <div class="overflow-x-auto text-left">
+                    <table class="w-full text-left border-collapse min-w-[600px]">
+                        <thead class="bg-slate-50 border-b font-bold text-slate-400 uppercase tracking-widest text-[9px] sm:text-[10px] text-left">
                             <tr>
-                                <th class="p-8 font-bold">Gama / Producto</th>
-                                <th class="p-8 text-left font-bold">Especificación Técnica</th>
-                                <th class="p-8 text-right font-bold">Precio Neto (€)</th>
+                                <th class="p-5 sm:p-8 text-left">Gama / Producto</th>
+                                <th class="p-5 sm:p-8 text-left">Especificación Técnica</th>
+                                <th class="p-5 sm:p-8 text-right">Precio Neto (€)</th>
                             </tr>
                         </thead>
-                        <tbody id="product-list" class="divide-y divide-slate-50 font-bold italic"></tbody>
+                        <tbody id="product-list" class="divide-y divide-slate-50 text-left"></tbody>
                     </table>
                 </div>
             </div>
+            <div id="confidential-footer-tab-2" class="confidential-card"></div>
         </div>
 
         <!-- PESTAÑA 3: LOGÍSTICA -->
-        <div id="logistic" class="tab-content space-y-12 animate-in text-sm font-medium leading-tight">
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <!-- Tiempos de Entrega -->
-                <div class="bg-white p-8 sm:p-12 rounded-[48px] border border-slate-100 shadow-xl flex flex-col font-black leading-tight italic shadow-blue-50">
-                    <h4 class="font-extrabold text-2xl text-slate-900 tracking-tight uppercase mb-10 border-b pb-8 flex items-center gap-4 italic font-black leading-none font-bold">
-                        <i data-lucide="truck" class="text-blue-600 font-bold italic"></i> Plazos de Suministro
-                    </h4>
-                    <div class="space-y-8 font-black">
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-5 font-black">
-                            <div><p class="font-extrabold text-slate-900 text-lg leading-none mb-1 font-black text-left">Stock Esféricas</p><p class="text-[10px] text-slate-400 italic font-black text-left">Pedidos antes de las 13:00h.</p></div>
-                            <span class="text-blue-600 font-extrabold text-2xl font-black italic font-bold">24 Horas</span>
+        <div id="logistic" class="tab-content space-y-8 animate-in text-sm text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
+                <div class="space-y-6 text-left">
+                    <div class="bg-white p-8 sm:p-12 rounded-[48px] border border-slate-100 shadow-xl flex flex-col shadow-blue-50 text-left h-fit">
+                        <h4 class="font-extrabold text-2xl text-slate-900 tracking-tight uppercase mb-2 flex items-center gap-4 text-left">
+                            <i data-lucide="truck" class="text-blue-600 font-black"></i> Plazos Biotech
+                        </h4>
+                        <p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-10 border-b pb-4 italic text-left">Logística Eyecryl Phakic</p>
+                        <div class="space-y-8 font-bold text-slate-700 text-left">
+                            <div class="flex justify-between items-center border-b border-slate-50 pb-5">
+                                <div><p class="text-slate-900 text-lg leading-none mb-1 text-left">Stock Esféricas</p><p class="text-[10px] text-slate-400 font-medium text-left">Pedidos antes de las 13:00h.</p></div>
+                                <span class="text-blue-600 font-black text-2xl">24 Horas</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-slate-50 pb-5">
+                                <p class="text-slate-900 text-lg font-black text-left">Lentes Tóricas</p><span class="text-slate-800 font-black text-2xl">6 - 10 Días</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 pt-1">
+                                <p class="text-slate-900 text-lg font-black text-left">Fabricación / Custom</p><span class="text-slate-800 font-black text-2xl">33 - 35 Días</span>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-5 font-black font-black">
-                            <p class="font-extrabold text-slate-900 text-lg font-black font-bold">Lentes Tóricas</p>
-                            <span class="text-slate-800 font-extrabold text-2xl tracking-tighter font-black italic font-bold">6 - 10 Días</span>
-                        </div>
-                        <div class="flex justify-between items-center pb-2 pt-1 font-bold font-black font-bold">
-                            <p class="font-extrabold text-slate-900 text-lg font-black font-black">Fabricación / Custom</p>
-                            <span class="text-slate-800 font-extrabold text-2xl tracking-tighter italic font-black">33 - 35 Días</span>
-                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-8 rounded-[48px] shadow-2xl text-left">
+                        <h4 class="font-black text-xl uppercase tracking-tighter mb-6 flex items-center gap-4 text-blue-400 text-left">
+                            <i data-lucide="shield-check" class="font-black"></i> Condiciones de Garantía
+                        </h4>
+                        <ul class="space-y-5 text-[11px] sm:text-xs font-bold text-slate-300 text-left">
+                            <li class="flex gap-4 text-left"><i data-lucide="calendar" class="text-blue-500 shrink-0" size="18"></i> <span><strong>Plazo máximo de devoluciones: 6 meses desde la entrega.</strong></span></li>
+                            <li class="flex gap-4 text-left"><i data-lucide="lock" class="text-red-400 shrink-0" size="18"></i> <span><strong>Eyecryl Phakic Custom:</strong> Al ser productos de fabricación personalizada a medida por paciente, no admiten devolución ni cambio.</span></li>
+                            <li class="flex gap-4 text-left"><i data-lucide="info" class="text-amber-400 shrink-0" size="18"></i> <span>Las lentes enviadas <strong>sin cargo (FOC)</strong> no computan dentro del volumen objetivo.</span></li>
+                            <li class="flex gap-4 text-left"><i data-lucide="refresh-cw" class="text-blue-500 shrink-0" size="18"></i> <span>Las lentes explantadas deben retornarse físicamente para tramitar el abono.</span></li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Cuestionario Devolución -->
-                <div class="bg-white p-12 rounded-[56px] border border-slate-100 shadow-2xl shadow-emerald-50 italic font-black">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 border-b pb-8 gap-4 italic font-black text-left">
-                        <h4 class="font-extrabold text-2xl uppercase tracking-tighter flex items-center gap-4 italic font-black leading-tight">
-                            <i data-lucide="package-search" class="text-emerald-600 font-black italic font-black"></i> Gestión de Retornos
-                        </h4>
-                        <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest bg-slate-50 px-3 py-1 rounded border italic font-black text-center">Notifica a: Ana Montasell (Pedidos)</span>
-                    </div>
-                    <form onsubmit="event.preventDefault(); submitReturn();" class="space-y-6 font-bold text-left italic">
-                        <div><label class="form-label font-bold italic">Centro Solicitante</label><input type="text" id="return-center" placeholder="Clínica..." required class="italic font-bold"></div>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div><label class="form-label font-bold font-black italic text-left">Unidades</label><input type="number" id="return-qty" required class="italic font-bold"></div>
-                            <div>
-                                <label class="form-label font-bold font-black italic text-left">Motivo</label>
-                                <select id="return-reason" onchange="toggleOtherReason(this.value)" required class="italic font-bold">
-                                    <option value="Canje Stock">Canje de Stock</option>
-                                    <option value="Cancelación">Cancelación Cirugía</option>
-                                    <option value="Error">Error de Graduación</option>
-                                    <option value="Otros">Otros (especificar)</option>
-                                </select>
+                <div class="bg-white p-8 sm:p-10 rounded-[56px] border-2 border-slate-900 shadow-2xl h-fit text-left">
+                    <h4 class="font-black text-2xl uppercase tracking-tighter mb-8 flex items-center gap-4 text-left">
+                        <i data-lucide="package-search" class="text-emerald-600 font-black text-left"></i> Gestión de Retornos
+                    </h4>
+                    <form onsubmit="event.preventDefault(); submitReturn();" class="space-y-4 text-left">
+                        <div><label class="form-label text-slate-500 text-left">Centro Solicitante</label><input type="text" id="return-center" required class="font-bold"></div>
+                        <div class="grid grid-cols-2 gap-4 text-left">
+                            <div><label class="form-label text-slate-500 text-left">Unidades</label><input type="number" id="return-qty" required class="font-bold"></div>
+                            <div><label class="form-label text-slate-500 text-left">Fecha Recogida</label><input type="date" id="return-date" required class="font-bold"></div>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-left">
+                            <label class="form-label text-blue-600 text-left font-black">Números de Serie</label>
+                            <div class="flex gap-2 mb-3 text-left">
+                                <button type="button" onclick="simulateScan('QR')" class="flex-1 bg-white border border-slate-200 py-2 rounded-xl text-[9px] font-black uppercase hover:bg-blue-50 flex items-center justify-center gap-2 transition-colors"><i data-lucide="qr-code" size="14"></i> QR</button>
+                                <button type="button" onclick="simulateScan('Barras')" class="flex-1 bg-white border border-slate-200 py-2 rounded-xl text-[9px] font-black uppercase hover:bg-blue-50 flex items-center justify-center gap-2 transition-colors"><i data-lucide="barcode" size="14"></i> Barras</button>
                             </div>
+                            <textarea id="return-serials" rows="4" placeholder="Series separadas por comas..." required class="text-xs font-mono"></textarea>
                         </div>
-                        <div id="other-reason-container" class="hidden animate-in">
-                            <input type="text" id="return-other" placeholder="Especifique motivo..." class="italic font-bold font-black">
-                        </div>
-                        <div>
-                            <label class="form-label font-bold text-blue-600 underline font-black text-left leading-tight">Números de Serie</label>
-                            <textarea id="return-serials" rows="2" placeholder="Introduzca las series..." required class="italic font-bold font-black"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-emerald-600 text-white font-extrabold py-5 rounded-[20px] shadow-xl hover:bg-emerald-700 transition-all uppercase text-sm font-black flex items-center justify-center gap-4 italic font-black">
-                            <i data-lucide="send" class="italic font-black"></i> NOTIFICAR A PEDIDOS IBERIA
-                        </button>
+                        <button type="submit" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-emerald-600 transition-all uppercase text-[11px] flex items-center justify-center gap-4 tracking-widest font-black"><i data-lucide="truck"></i> Solicitar Recogida</button>
                     </form>
                 </div>
             </div>
-
-            <!-- COMPROMISO COMERCIAL -->
-            <div class="bg-white p-12 rounded-[56px] border border-slate-100 shadow-2xl relative overflow-hidden italic font-bold shadow-amber-50 leading-tight">
-                <div class="flex items-center gap-5 mb-10 border-b border-slate-50 pb-8 text-left">
-                    <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center shadow-lg">
-                        <i data-lucide="shield-check" size="24"></i>
-                    </div>
-                    <h4 class="font-extrabold text-3xl uppercase tracking-tighter text-slate-900 leading-none italic font-black">Marco Comercial de Garantía</h4>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm leading-relaxed text-left">
-                    <div class="space-y-8 font-black">
-                        <div class="p-8 bg-slate-50 rounded-[32px] border-l-8 border-slate-900 shadow-inner">
-                            <h5 class="text-xs font-extrabold text-slate-800 uppercase mb-3 tracking-widest text-left font-black italic">Política de Canje de Stock Estándar</h5>
-                            <p class="text-slate-600 font-medium italic mb-4">
-                                Biotech Iberia garantiza la rotación de inventario para todo el material de catálogo estándar. Los centros disponen de un periodo de <strong>6 meses</strong> desde la fecha de entrega original para solicitar el canje o devolución de unidades.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="space-y-8 font-black">
-                        <div class="p-8 bg-red-50/50 rounded-[32px] border-l-8 border-red-500 shadow-inner">
-                            <h5 class="text-xs font-extrabold text-red-700 uppercase mb-3 tracking-widest font-black text-left">Exclusión: Eyecryl Phakic Custom</h5>
-                            <p class="text-red-900 font-medium italic mb-4">
-                                Debido a su naturaleza de <strong>fabricación exclusiva y personalizada por paciente</strong> (graduación y tallas específicas), las lentes <strong>Custom no permiten su devolución ni cambio</strong> bajo ningún concepto.
-                            </p>
-                            <p class="text-[11px] text-red-500 font-bold italic uppercase tracking-tighter text-left">"Se recomienda formalmente solicitar reserva económica al paciente previo a la orden."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="confidential-footer-tab-3" class="confidential-card"></div>
         </div>
 
-        <!-- TAB 4: FORMACIÓN -->
-        <div id="training" class="tab-content space-y-10 animate-in">
-            <div class="bg-white p-12 rounded-[56px] shadow-2xl italic font-black">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 border-b pb-10 gap-4 not-italic">
-                    <h4 class="font-extrabold text-4xl text-slate-900 uppercase tracking-tighter font-bold leading-none italic text-left">Formación Técnica</h4>
-                    <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest bg-slate-50 px-3 py-1 rounded border italic">Notifica a: Ly García y Vanessa García</span>
+        <!-- PESTAÑA 4: FORMACIÓN -->
+        <div id="training" class="tab-content space-y-10 animate-in text-left">
+            <div class="bg-white p-8 sm:p-12 rounded-[56px] shadow-2xl text-left">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 border-b pb-10 gap-4 text-left">
+                    <h4 class="font-black text-3xl sm:text-4xl text-slate-900 uppercase tracking-tighter leading-none text-left">Formación Técnica Biotech</h4>
                 </div>
-                <form onsubmit="event.preventDefault(); submitTraining();" class="grid grid-cols-1 lg:grid-cols-2 gap-16 font-medium text-sm not-italic font-bold italic text-left">
-                    <div class="space-y-10 font-bold">
-                        <div><label class="form-label font-bold text-left">Centro / Clínica</label><input type="text" id="train-center" placeholder="..." required></div>
+                <form onsubmit="event.preventDefault(); submitTraining();" class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 font-medium text-sm text-left">
+                    <div class="space-y-8 text-left">
+                        <div><label class="form-label text-slate-500 text-left">Centro / Clínica</label><input type="text" id="train-center" required class="font-bold"></div>
                         <div>
-                            <label class="form-label font-bold text-left font-black">Temática</label>
-                            <select id="train-topic" onchange="handleTopicChange(this.value)" required>
-                                <option value="" disabled selected>Seleccione opción...</option>
-                                <option value="Certificación">Certificación de nuevos cirujanos</option>
-                                <option value="Lentes Fáquicas">Lentes Fáquicas</option>
-                                <option value="Lentes Pseudofáquicas">Lentes Pseudofáquicas</option>
+                            <label class="form-label text-slate-500 text-left">Modalidad</label>
+                            <select id="train-mode" onchange="handleModeConstraints(this.value)" required class="font-bold">
+                                <option value="Presencial">Presencial (en Clínica)</option>
+                                <option value="Online">Online (Solo Teoría Certificación)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label text-slate-500 text-left">Temática</label>
+                            <select id="train-topic" onchange="handleTopicLogic(this.value)" required class="font-bold text-slate-800">
+                                <option value="" disabled selected>Seleccione temática...</option>
+                                <option value="Certificación">Certificación (Teoría y Práctica)</option>
+                                <option value="Cargado de Lente">Cargado de Lente (Solo Presencial)</option>
+                                <option value="Lentes Fáquicas">Gama Lentes Fáquicas</option>
+                                <option value="Lentes Pseudofáquicas">Gama Lentes Pseudofáquicas</option>
                                 <option value="Todas">Formación Integral Portafolio</option>
                             </select>
                         </div>
-                        <div id="surgeon-name-container" class="hidden animate-in font-bold italic"><label class="form-label font-bold text-blue-600 underline">Médico a Certificar</label><input type="text" id="train-surgeon"></div>
                     </div>
-                    <div class="space-y-10 font-bold">
+                    <div class="space-y-8 text-left">
+                        <div id="surgeon-name-container" class="hidden animate-in text-left"><label class="form-label text-blue-600 font-black text-left">Médico a Certificar</label><input type="text" id="train-surgeon" class="font-bold"></div>
                         <div>
-                            <label class="form-label font-bold text-left">Duración Estimada</label>
-                            <select id="train-duration" required>
-                                <option value="30 min">30 min (Sesión rápida)</option>
-                                <option value="1 hora" selected>1 h (Formación standard)</option>
+                            <label class="form-label text-slate-500 text-left">Duración Estimada</label>
+                            <select id="train-duration" required class="font-bold">
+                                <option value="30 min">30 min (Express)</option>
+                                <option value="1 hora" selected>1 h (Estándar)</option>
                                 <option value="2 horas">2 h (Profundización)</option>
-                                <option value="4h (Formación integral personal)">4h (Formación integral para todo el personal de la clínica)</option>
-                                <option value="Quirófano">Jornada completa / Quirófano</option>
+                                <option value="4h">Jornada Completa</option>
                             </select>
                         </div>
-                        <div class="grid grid-cols-2 gap-8 font-black font-bold italic">
-                            <input type="date" id="train-date" required><input type="time" id="train-time" required>
+                        <div class="grid grid-cols-2 gap-4 text-left">
+                            <div><label class="form-label text-slate-500 text-left">Fecha</label><input type="date" id="train-date" required class="font-bold"></div>
+                            <div><label class="form-label text-slate-500 text-left">Hora</label><input type="time" id="train-time" required class="font-bold"></div>
                         </div>
-                        <button type="submit" class="w-full bg-blue-600 text-white font-extrabold py-6 rounded-[20px] shadow-2xl transition-all uppercase flex items-center justify-center gap-4 font-bold italic">
-                            <i data-lucide="calendar-plus"></i> SOLICITAR FORMACIÓN
-                        </button>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-black py-6 rounded-2xl shadow-xl hover:bg-blue-700 transition-all uppercase flex items-center justify-center gap-4 tracking-widest text-[11px] font-black"><i data-lucide="calendar-plus"></i> Solicitar Formación</button>
                     </div>
                 </form>
             </div>
+            <div id="confidential-footer-tab-4" class="confidential-card"></div>
         </div>
 
-        <!-- TAB 5: MARKETING -->
-        <div id="marketing" class="tab-content space-y-10 animate-in">
-            <div class="bg-white p-12 rounded-[56px] shadow-2xl italic font-black shadow-indigo-50">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 border-b pb-12 gap-4 font-black">
-                    <h4 class="font-extrabold text-4xl text-slate-900 uppercase mb-0 leading-none font-bold italic text-left">Soporte Marketing</h4>
-                    <span class="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest bg-slate-50 px-3 py-1 rounded border italic">Destinatario: Sofía Gortari</span>
+        <!-- PESTAÑA 5: MARKETING -->
+        <div id="marketing" class="tab-content space-y-10 animate-in text-left">
+            <div class="bg-white p-8 sm:p-12 rounded-[40px] border border-slate-100 shadow-xl text-left">
+                <div class="mb-10 border-b border-slate-100 pb-8 text-left">
+                    <h4 class="font-black text-3xl sm:text-4xl text-slate-900 uppercase tracking-tighter leading-none text-left">Material de Marketing Biotech</h4>
                 </div>
-                <form onsubmit="event.preventDefault(); submitMarketing();" class="grid grid-cols-1 lg:grid-cols-2 gap-16 font-black italic text-left">
-                    <div class="space-y-10 font-black italic font-bold font-black">
-                        <div><label class="form-label font-bold uppercase italic font-bold">Centro Solicitante</label><input type="text" id="mkt-center" required class="italic font-bold font-black"></div>
-                        <div><label class="form-label font-bold uppercase italic text-blue-600 underline">Médico/s Destinatario/s</label><input type="text" id="mkt-doctors" placeholder="..." required class="italic font-bold font-black"></div>
-                        <div class="p-8 bg-slate-50 rounded-[32px] border space-y-5 shadow-inner italic font-black">
-                            <p class="text-[10px] text-slate-400 font-extrabold uppercase italic font-black">Materiales Solicitados</p>
-                            <label class="flex items-center gap-4 font-bold"><input type="checkbox" name="mkt-item" value="Folletos"> Folletos de Producto</label>
-                            <label class="flex items-center gap-4 font-bold"><input type="checkbox" name="mkt-item" value="Maquetas"> Maquetas de Ojos</label>
-                            <label class="flex items-center gap-4 font-bold"><input type="checkbox" name="mkt-item" value="Gorros"> Gorros Quirófano</label>
+                <form onsubmit="event.preventDefault(); submitMarketing();" class="space-y-8 text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div><label class="form-label text-left">Centro / Centros Solicitantes</label><input type="text" id="mkt-centers" required placeholder="Clínica/s" class="font-bold"></div>
+                        <div><label class="form-label text-left">Doctor Solicitante</label><input type="text" id="mkt-doctor" required placeholder="Nombre del cirujano" class="font-bold"></div>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-6 sm:p-10 rounded-[32px] border border-slate-200 text-left">
+                        <h5 class="text-[10px] font-black uppercase text-blue-600 tracking-widest mb-8 text-left">Selección de Materiales y Cantidades</h5>
+                        <!-- ALINEACIÓN DE CUADRADITOS Y TEXTO SOLICITADA -->
+                        <div class="flex flex-col gap-6 max-w-2xl text-left">
+                            <div class="flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-left">
+                                <label class="text-xs font-black flex items-center gap-4 cursor-pointer text-left"><input type="checkbox" name="mkt-item" value="Folletos" class="w-5 h-5 rounded border-slate-300"> Folletos de Producto</label>
+                                <input type="number" id="qty-folletos" placeholder="Cant" class="w-24 text-center text-xs py-2 border-slate-200 rounded-lg font-bold">
+                            </div>
+                            <div class="flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-left">
+                                <label class="text-xs font-black flex items-center gap-4 cursor-pointer text-left"><input type="checkbox" name="mkt-item" value="Material Web" class="w-5 h-5 rounded border-slate-300"> Material para página web</label>
+                                <input type="number" id="qty-web" placeholder="Cant" class="w-24 text-center text-xs py-2 border-slate-200 rounded-lg font-bold">
+                            </div>
+                            <div class="flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-left">
+                                <label class="text-xs font-black flex items-center gap-4 cursor-pointer text-left"><input type="checkbox" name="mkt-item" value="Gorros" class="w-5 h-5 rounded border-slate-300"> Gorros de quirófano</label>
+                                <input type="number" id="qty-gorros" placeholder="Cant" class="w-24 text-center text-xs py-2 border-slate-200 rounded-lg font-bold">
+                            </div>
+                            <div class="flex items-center justify-between bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-left">
+                                <label class="text-xs font-black flex items-center gap-4 cursor-pointer text-left"><input type="checkbox" name="mkt-item" value="Maquetas" class="w-5 h-5 rounded border-slate-300"> Maquetas de ojo</label>
+                                <input type="number" id="qty-maquetas" placeholder="Cant" class="w-24 text-center text-xs py-2 border-slate-200 rounded-lg font-bold">
+                            </div>
                         </div>
                     </div>
-                    <div class="space-y-10 italic font-black font-black">
-                        <input type="url" id="mkt-urls" placeholder="URLs de Referencia..." class="italic font-bold font-black">
-                        <textarea id="mkt-details" rows="5" placeholder="Detalles de solicitud..." class="italic font-bold font-black"></textarea>
-                        <button type="submit" class="w-full bg-indigo-600 text-white font-extrabold py-6 rounded-[20px] shadow-xl transition-all uppercase flex items-center justify-center gap-4 italic font-black font-black">
-                            <i data-lucide="megaphone"></i> NOTIFICAR A SOFÍA GORTARI
-                        </button>
-                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-blue-700 transition-all uppercase text-[11px] tracking-widest flex items-center justify-center gap-3 font-black text-left">
+                        <i data-lucide="megaphone" size="18"></i> Enviar Solicitud a Marketing
+                    </button>
                 </form>
             </div>
+            <div id="confidential-footer-tab-5" class="confidential-card"></div>
         </div>
 
-        <footer class="mt-20 pt-10 border-t border-slate-100 text-center font-bold">
-            <div class="p-10 bg-slate-50 rounded-[40px] border border-slate-100 max-w-5xl mx-auto italic font-medium leading-relaxed font-black">
-                <p class="text-[11px] text-slate-400 font-extrabold uppercase tracking-[0.3em] mb-4 font-black">Aviso de Privacidad y Confidencialidad</p>
-                <p class="text-[12px] text-slate-500 font-medium font-black italic">
-                    "Toda la información estratégica, comercial y técnica contenida en este panel es estrictamente confidencial y propiedad intelectual de Biotech Healthcare Iberia S.L. Su acceso está restringido exclusivamente a la gerencia y personal autorizado de Innova Ocular España."
-                </p>
-                <p class="mt-8 text-[10px] text-slate-300 font-extrabold uppercase italic tracking-[0.1em] font-black">Biotech Healthcare Iberia © 2026</p>
+        <!-- PESTAÑA 6: ESTUDIOS CLÍNICOS -->
+        <div id="clinical" class="tab-content space-y-10 animate-in text-left">
+            <div class="bg-white p-8 sm:p-12 rounded-[56px] shadow-2xl relative overflow-hidden text-left">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px] -mr-32 -mt-32 text-left"></div>
+                <div class="relative z-10 text-left">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-10 mb-10 border-b border-slate-100 pb-10 text-left">
+                        <div class="max-w-3xl text-left">
+                            <h4 class="font-black text-3xl sm:text-4xl text-slate-900 uppercase tracking-tighter leading-none mb-6 text-left">Investigación Clínica Biotech</h4>
+                            <p class="text-sm text-slate-600 font-bold leading-relaxed mb-6 text-left italic">
+                                Apoyamos la generación de evidencia científica. Biotech asume la carga técnica, mientras el **100% del crédito científico y autoría** recae en el centro y los facultativos.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 flex items-center gap-4 text-left">
+                                    <i data-lucide="database" class="text-emerald-600 shrink-0"></i>
+                                    <p class="text-[10px] font-black text-emerald-900 uppercase text-left leading-tight">Gestión integral de Datos y Análisis</p>
+                                </div>
+                                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 flex items-center gap-4 text-left">
+                                    <i data-lucide="file-check" class="text-emerald-600 shrink-0"></i>
+                                    <p class="text-[10px] font-black text-emerald-900 uppercase text-left leading-tight">Trámite Aprobación Comité Ético</p>
+                                </div>
+                                <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-100 flex items-center gap-4 text-left">
+                                    <i data-lucide="award" class="text-emerald-600 shrink-0"></i>
+                                    <p class="text-[10px] font-black text-emerald-900 uppercase text-left leading-tight">Escritura, Edición y Publicación Final</p>
+                                </div>
+                                <div class="bg-blue-50 p-5 rounded-2xl border border-blue-100 flex items-center gap-4 text-left">
+                                    <i data-lucide="user-check" class="text-blue-600 shrink-0"></i>
+                                    <p class="text-[10px] font-black text-blue-900 uppercase text-left leading-tight">Crédito total para Doctores e Institución</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-80 bg-slate-900 text-white p-8 rounded-[32px] shadow-2xl border border-white/10 text-left">
+                            <h5 class="text-[10px] font-black uppercase text-blue-400 mb-4 tracking-widest text-left">Director Científico</h5>
+                            <p class="text-xl font-black mb-1 text-left">Arturo Corroto</p>
+                            <a href="mailto:Arturo.Cuadrado@biotechhealthcare.com" class="text-[11px] block font-bold text-slate-400 mb-6 email-nowrap underline text-left">Arturo.Cuadrado@biotechhealthcare.com</a>
+                            <div class="flex flex-col gap-3 text-left">
+                                <a href="tel:+34616166926" class="flex items-center gap-3 bg-white/10 px-4 py-3 rounded-xl text-xs font-black hover:bg-white/20 transition-colors text-left"><i data-lucide="phone" size="16"></i> +34 616 16 69 26</a>
+                                <a href="https://wa.me/34616166926" target="_blank" class="flex items-center gap-3 bg-green-600/20 border border-green-500/30 px-4 py-3 rounded-xl text-xs font-black hover:bg-green-600 hover:text-white transition-colors text-left"><i data-lucide="message-circle" size="16" class="text-green-400"></i> WhatsApp Arturo</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form onsubmit="event.preventDefault(); submitClinicalStudy();" class="bg-slate-50 p-8 rounded-[40px] border border-slate-200 text-left">
+                        <h4 class="text-lg font-black uppercase text-slate-800 mb-6 text-left">Solicitud de Inicio de Estudio</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-left">
+                            <div class="space-y-6 text-left">
+                                <div><label class="form-label text-left">Centro / Clínica</label><input type="text" id="study-center" required class="bg-white font-bold"></div>
+                                <div><label class="form-label text-left">Doctor Investigador</label><input type="text" id="study-doctor" required class="bg-white font-bold"></div>
+                            </div>
+                            <div class="space-y-6 text-left">
+                                <div>
+                                    <label class="form-label text-left">Línea de Interés Clínico</label>
+                                    <div class="flex gap-4 mt-2 text-left">
+                                        <label class="flex-1 bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3 font-bold text-xs cursor-pointer hover:border-blue-500 transition-all"><input type="radio" name="study-topic" value="Fáquicas" required> Gama Fáquicas</label>
+                                        <label class="flex-1 bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-3 font-bold text-xs cursor-pointer hover:border-blue-500 transition-all"><input type="radio" name="study-topic" value="Pseudofáquicas" required> Gama Pseudofáquicas</label>
+                                    </div>
+                                </div>
+                                <div><label class="form-label text-left">Observaciones o Idea Inicial</label><textarea id="study-details" rows="3" class="bg-white font-bold" placeholder="Especifique el interés científico..."></textarea></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-emerald-700 transition-all uppercase text-[11px] tracking-widest flex items-center justify-center gap-3 font-black text-left"><i data-lucide="microscope" size="18"></i> Notificar Interés Científico</button>
+                    </form>
+                </div>
             </div>
-        </footer>
+            <div id="confidential-footer-tab-6" class="confidential-card"></div>
+        </div>
     </div>
 
     <script>
@@ -558,27 +599,75 @@
             { limit: 1750000, rate: 0.045 }, { limit: 2000000, rate: 0.050 }
         ];
 
-        // TARIFA ORDENADA CON ESPECIFICACIONES TÉCNICAS
+        const targets = { pseudo: 2500, phakic: 150, visco: 3500 };
+        let currentPeriod = "Anual";
+
+        const confidentialityHTML = `
+            <div class="flex items-start gap-4 text-left">
+                <i data-lucide="lock" class="w-5 h-5 text-slate-400 shrink-0 mt-1"></i>
+                <div>
+                    <p class="font-black text-slate-800 uppercase tracking-widest text-[10px] mb-2 text-left">ACUERDO DE CONFIDENCIALIDAD Y USO RESTRINGIDO - BIOTECH</p>
+                    <p class="text-slate-500 font-semibold leading-relaxed text-[11px] text-left">
+                        Toda la información técnica, tarifaria y estratégica contenida en este panel digital es propiedad intelectual exclusiva de **Biotech Healthcare Iberia S.L.** Los datos aquí presentados tienen carácter estrictamente confidencial. El acceso a este documento está limitado única y exclusivamente a la gerencia de **Innova Ocular España** y a su personal interno debidamente autorizado. Queda terminantemente prohibido compartir, distribuir, reproducir o ceder total o parcialmente esta información a terceros ajenos a las entidades mencionadas. El uso indebido de este contenido podrá dar lugar a las acciones legales pertinentes de acuerdo con la normativa vigente sobre Secretos Comerciales y Protección de Datos.
+                    </p>
+                </div>
+            </div>
+        `;
+
         const products = [
-            { cat: 'PHAKIC', name: 'EYECRYL PHAKIC BAJA POTENCIA', price: 500.00, desc: 'Rango +2.75D a -6.00D (Plano Intraocular). Incluye Sph/Tor hasta +5D. ACD mín. 2.8mm (Endotelio) y puerto central en todas, inc. hipermetrópicas.' },
-            { cat: 'PHAKIC', name: 'EYECRYL PHAKIC ALTA POTENCIA (SPH)', price: 550.00, desc: 'Graduación: +3.00D a +10.00D | -6.50D a -25.00D (Plano Intraocular). ACD mín. 2.8mm (Endotelio) y puerto central.' },
-            { cat: 'PHAKIC', name: 'EYECRYL PHAKIC ALTA POTENCIA (TOR)', price: 860.00, desc: 'Graduación: Extremas con CYL hasta +5.00D (Plano Intraocular). ACD mín. 2.8mm (Endotelio) y puerto central.' },
-            { cat: 'PHAKIC', name: 'EYECRYL PHAKIC CUSTOM', price: 1275.00, desc: 'Tallas: 11, 11.5, 14, 14.5 mm. Fabricación exclusiva personalizada. Graduaciones fuera de rango estándar. Puerto central incluido.' },
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio Plus (NUEVO)', price: 375.00, desc: 'Mix hidrofóbico avanzado sin vacuolas (Glisten-free).' },
-            { cat: 'EDOF', name: 'Optiflex Xtense Comfort Plus (NUEVO)', price: 375.00, desc: 'Tecnología EDOF no difractiva de visión continua real libre de halos.' },
-            { cat: 'EDOF', name: 'Eyecryl SERT', price: 105.00, desc: 'EDOF precargada asférica para incisión reducida.' },
-            { cat: 'EDOF', name: 'Eyecryl SERT Toric cyl 1', price: 200.00, desc: 'Tórica precargada para corrección astigmatismo bajo.' },
-            { cat: 'EDOF', name: 'Eyecryl SERT Toric otros cyls', price: 215.00, desc: 'Tórica precargada para cilindros superiores.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Comfort NY', price: 55.00, desc: 'Asférica HD precargada en sistema automatizado.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Duo (10% and 24%)', price: 20.00, desc: 'Pack Cohesivo + Dispersivo (Doble Jeringa).' },
-            { cat: 'VR', name: 'Bio Octane / Decaline', price: 65.00, desc: 'Perfluorocarbonos para cirugía de retina.' }
+            // PHAKIC ORDENADAS
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic Baja potencia (sph/tor)', price: 500.00, desc: 'Rango +2.75D a -6.00D. Incluye Sph/Tor hasta +5D. Diseño puerto central.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (sph)', price: 550.00, desc: 'Graduaciones extremas hasta -25.00D e Hipermetropía hasta +10.00D.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (tor)', price: 860.00, desc: 'Corrección astigmática elevada hasta +5.00D (Cilindro Plano Intraocular).' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic Custom', price: 1275.00, desc: 'Fabricación personalizada (tallas 11mm a 14.5mm) bajo demanda exclusiva.' },
+            // PREMIUM
+            { cat: 'OPTIFLEX', name: 'Optiflex Trio 3FLA6', price: 300.00, desc: 'Trifocal hidrofóbica avanzada 3 piezas para máxima estabilidad capsular.' },
+            { cat: 'OPTIFLEX', name: 'Optiflex Trio TORICA', price: 400.00, desc: 'Trifocal para corrección astigmática en material hidrofóbico avanzado.' },
+            { cat: 'OPTIFLEX', name: 'Optiflex Trio Plus', price: 375.00, new: true, desc: 'Trifocal hidrofóbica Glisten-Free de última generación.' },
+            { cat: 'OPTIFLEX', name: 'Optiflex Xtense Comfort Plus', price: 375.00, new: true, desc: 'EDOF no difractiva de rango extendido y visión continua real.' },
+            // MONOFOCALES
+            { cat: 'EYECRYL', name: 'Eyecryl SERT', price: 105.00, desc: 'Asférica precargada micro-incisión automatizada.' },
+            { cat: 'EYECRYL', name: 'Eyecryl SERT Toric cyl 1', price: 200.00, desc: 'Tórica precargada para corrección de astigmatismos bajos.' },
+            { cat: 'EYECRYL', name: 'Eyecryl SERT Toric otros cyls', price: 215.00, desc: 'Tórica precargada para cilindros superiores a cyl 1.' },
+            { cat: 'EYECRYL', name: 'Eyecryl Actv', price: 200.00, desc: 'Monofocal avanzada tecnología asférica HD.' },
+            { cat: 'EYECRYL', name: 'Eyecryl Plus (hydrophobic not preloaded)', price: 45.00, desc: 'Lente hidrofóbica estándar de carga manual.' },
+            { cat: 'EYECRYL', name: 'Eyecryl 600 (hydrophilic non preloaded)', price: 35.00, desc: 'Hidrofílica clásica no precargada.' },
+            { cat: 'EYECRYL', name: 'Eyecryl Comfort NY (preloaded)', price: 55.00, desc: 'Asférica HD precargada en sistema automatizado.' },
+            { cat: 'EYECRYL', name: 'Eyecryl Toric', price: 200.00, desc: 'Lente tórica de carga manual para astigmatismos.' },
+            // VISCOS
+            { cat: 'OVDs', name: 'Eyevisc 2% 2ml PFS', price: 7.70, desc: 'HPMC dispersivo clásico para protección endotelial.' },
+            { cat: 'OVDs', name: 'Bio Hyalur 1ml PFS', price: 9.90, desc: 'Viscoelástico cohesivo estándar 1%.' },
+            { cat: 'OVDs', name: 'Bio Hyalur Plus 1ml PFS', price: 10.80, desc: 'Hialuronato sódico 1.4% mayor peso molecular.' },
+            { cat: 'OVDs', name: 'Bio Hyalur HV 1ml PFS', price: 12.00, desc: 'High Viscosity para casos complejos.' },
+            { cat: 'OVDs', name: 'Bio Hyalur SV 1ml PFS', price: 12.50, desc: 'Super Viscosity 1.8% premium.' },
+            { cat: 'OVDs', name: 'Bio Hyalur Duo (10% and 24%) 1ml PFS', price: 20.00, desc: 'Pack Cohesivo + Dispersivo (Doble Jeringa).' },
+            { cat: 'OVDs', name: 'Bio Hyalur CS 1ml PFS', price: 23.00, desc: 'Condroitín Sulfato combinado máxima adhesión.' },
+            { cat: 'OVDs', name: 'Bio Hyalur LVD 1ml PFS', price: 24.50, desc: 'Low Viscosity Dispersivo avanzado.' },
+            // RETINA / MISC
+            { cat: 'RETINA', name: 'Bio Blue 1ml PFS SKU FG0275', price: 9.50, desc: 'Azul de Trypan premium tinción capsular.' },
+            { cat: 'MISC', name: 'Biovision PMMA CTR (Clear)', price: 20.00, desc: 'Anillo tensión capsular PMMA transparente.' },
+            { cat: 'MISC', name: 'Biovision PMMA CTR (Blue)', price: 20.00, desc: 'Anillo tensión capsular PMMA azul.' },
+            { cat: 'MISC', name: 'Iris Retractors', price: 40.00, desc: 'Set de 5 retractores de iris estériles.' },
+            { cat: 'RETINA', name: 'BioBlue 90 Plus (ILM equivalent)', price: 45.00, desc: 'Tinción ILM avanzada alta definición.' },
+            { cat: 'RETINA', name: 'Bio Blue DUO (ILM ERM equivalent)', price: 55.00, desc: 'Doble tinción retina membranas ILM/ERM.' },
+            { cat: 'RETINA', name: 'BioSil 10ml', price: 59.00, desc: 'Aceite de silicona estándar alta pureza.' },
+            { cat: 'RETINA', name: 'Biosil F 10ml', price: 59.00, desc: 'Aceite de silicona fluido inyección rápida.' },
+            { cat: 'RETINA', name: 'Bio Octane', price: 65.00, desc: 'Perfluoroctano premium para cirugía.' },
+            { cat: 'RETINA', name: 'Bio Decaline', price: 65.00, desc: 'Perfluordecalina alta densidad.' },
+            { cat: 'MISC', name: 'Bioring (par)', price: 265.00, desc: 'Anillo especializado cirugía vítrea.' }
         ];
 
         document.addEventListener('DOMContentLoaded', function() {
             if (window.lucide) lucide.createIcons();
             renderProducts();
             updateGroupSim(750000);
-            updateBillingProgress(0);
+            updateQProgress();
+            
+            for(let i=1; i<=6; i++) {
+                const footer = document.getElementById(`confidential-footer-tab-${i}`);
+                if (footer) footer.innerHTML = confidentialityHTML;
+            }
+            if (window.lucide) lucide.createIcons();
         });
 
         function showTab(id) {
@@ -587,87 +676,119 @@
             document.getElementById(id).classList.add('active');
             document.getElementById('btn-' + id).classList.add('active');
             if (window.lucide) lucide.createIcons();
-        }
-
-        function triggerAnnualClosure() {
-            const amount = document.getElementById('actual-billing-input').value;
-            if(!amount || amount <= 0) return alert("Indique el importe acumulado consolidado.");
-            const recipients = "ana.montasell@biotechhealthcare.com,carlos@biotechhealthcare.com,anatoli@biotechhealthcare.com,ly.garcia@biotechhealthcare.com";
-            const subject = "CIERRE ANUAL 2026 - INNOVA OCULAR";
-            const body = `REPORTE DE CIERRE ANUAL ESTRATÉGICO\n\nFacturación Final Consolidada: ${amount} €\n\nEste reporte ha sido generado para la validación final del Rappel de Grupo.`;
-            window.location.href = `mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-
-        function updateBillingProgress(val) {
-            const actual = parseFloat(val) || 0;
-            const maxVal = 2000000;
-            const percentage = Math.min((actual / maxVal) * 100, 100);
-            document.getElementById('progress-bar').style.width = percentage + '%';
-            document.getElementById('progress-text').innerText = percentage.toFixed(1) + '% alcanzado';
-            
-            let rate = 0; let nextLimit = rappelScale[0].limit; let nextRate = rappelScale[0].rate;
-            for (let i = 0; i < rappelScale.length; i++) {
-                if (actual >= rappelScale[i].limit) {
-                    rate = rappelScale[i].rate;
-                    if (i < rappelScale.length - 1) { nextLimit = rappelScale[i+1].limit; nextRate = rappelScale[i+1].rate; }
-                    else { nextLimit = null; }
-                }
-            }
-            document.getElementById('acc-rappel-percent').innerText = (rate * 100).toFixed(1) + '%';
-            document.getElementById('acc-rappel-cash').innerText = (actual * rate).toLocaleString() + ' €';
-            const nextStepText = document.getElementById('next-step-text');
-            if (nextLimit) nextStepText.innerHTML = `Faltan <span class="text-blue-600 font-bold">${(nextLimit - actual).toLocaleString()} €</span> para el tramo del ${(nextRate * 100).toFixed(1)}%.`;
-            else nextStepText.innerText = "¡Objetivo Máximo alcanzado (5%)!";
+            window.scrollTo(0, 0);
         }
 
         function updateGroupSim(val) {
             const sales = parseInt(val);
-            document.getElementById('group-display').innerText = sales.toLocaleString() + ' €';
+            document.getElementById('group-display').innerText = sales.toLocaleString('es-ES') + ' €';
             let rate = 0;
             for (let i = rappelScale.length - 1; i >= 0; i--) {
                 if (sales >= rappelScale[i].limit) { rate = rappelScale[i].rate; break; }
             }
-            document.getElementById('group-percent').innerText = (rate * 100).toFixed(1) + '%';
-            document.getElementById('group-cash').innerText = (sales * rate).toLocaleString() + ' €';
+            document.getElementById('group-percent').innerText = (rate * 100).toFixed(1).replace('.', ',') + '%';
+            document.getElementById('group-cash').innerText = (sales * rate).toLocaleString('es-ES') + ' €';
+        }
+
+        function setReportPeriod(period) {
+            currentPeriod = period;
+            document.querySelectorAll('.period-btn').forEach(b => {
+                b.classList.remove('bg-slate-900', 'text-white', 'active-period');
+                b.classList.add('bg-slate-100', 'text-slate-600');
+                if (b.innerText === period) {
+                    b.classList.remove('bg-slate-100', 'text-slate-600');
+                    b.classList.add('bg-slate-900', 'text-white', 'active-period');
+                }
+            });
+            document.getElementById('period-title').innerText = `Datos del Cierre ${period}`;
+            document.getElementById('report-send-btn').innerHTML = `<i data-lucide="send" size="14"></i> Enviar Reporte ${period}`;
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function updateQProgress() {
+            const pQty = parseFloat(document.getElementById('q-pseudo-qty').value) || 0;
+            const fQty = parseFloat(document.getElementById('q-phakic-qty').value) || 0;
+            const vQty = parseFloat(document.getElementById('q-visco-qty').value) || 0;
+            const pEuro = parseFloat(document.getElementById('q-pseudo-euro').value) || 0;
+            const fEuro = parseFloat(document.getElementById('q-phakic-euro').value) || 0;
+            const vEuro = parseFloat(document.getElementById('q-visco-euro').value) || 0;
+            const totalEuro = pEuro + fEuro + vEuro;
+            
+            document.getElementById('pseudo-p-text').innerText = Math.min((pQty/targets.pseudo)*100, 100).toFixed(1) + '%';
+            document.getElementById('pseudo-p-bar').style.width = Math.min((pQty/targets.pseudo)*100, 100) + '%';
+            document.getElementById('phakic-p-text').innerText = Math.min((fQty/targets.phakic)*100, 100).toFixed(1) + '%';
+            document.getElementById('phakic-p-bar').style.width = Math.min((fQty/targets.phakic)*100, 100) + '%';
+            document.getElementById('visco-p-text').innerText = Math.min((vQty/targets.visco)*100, 100).toFixed(1) + '%';
+            document.getElementById('visco-p-bar').style.width = Math.min((vQty/targets.visco)*100, 100) + '%';
+
+            let rate = 0;
+            for (let i = rappelScale.length - 1; i >= 0; i--) {
+                if (totalEuro >= rappelScale[i].limit) { rate = rappelScale[i].rate; break; }
+            }
+            document.getElementById('q-rappel-percent').innerText = (rate * 100).toFixed(1).replace('.', ',') + '%';
+            document.getElementById('q-rappel-cash').innerText = (totalEuro * rate).toLocaleString('es-ES') + ' €';
         }
 
         function renderProducts() {
             const list = document.getElementById('product-list');
             list.innerHTML = products.map(p => `
                 <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="p-8 font-extrabold text-slate-800 uppercase text-[12px] leading-tight font-bold text-left">
-                        ${p.name}<br><span class="text-[9px] bg-slate-100 px-2 py-0.5 rounded text-slate-400 font-bold tracking-tighter not-italic">${p.cat}</span>
+                    <td class="p-5 sm:p-8 font-black text-slate-800 text-[12px] sm:text-[13px] text-left">
+                        <div class="flex items-center gap-2 mb-1">${p.name} ${p.new ? '<span class="badge-new">NUEVO</span>' : ''}</div>
+                        <span class="text-[8px] sm:text-[9px] bg-slate-100 px-2 py-0.5 rounded text-slate-400 uppercase font-black">${p.cat}</span>
                     </td>
-                    <td class="p-8 text-left font-semibold text-slate-500 text-[11px] leading-relaxed max-w-sm font-bold text-left">
-                        ${p.desc}
-                    </td>
-                    <td class="p-8 text-right font-extrabold text-blue-700 text-2xl tabular-nums italic font-bold">
-                        ${p.price.toFixed(2)} €
-                    </td>
+                    <td class="p-5 sm:p-8 text-slate-500 font-semibold text-[10px] sm:text-xs max-w-[200px] sm:max-w-sm text-left">${p.desc || ''}</td>
+                    <td class="p-5 sm:p-8 text-right font-black text-blue-700 text-base sm:text-xl tabular-nums">${p.price.toFixed(2).replace('.', ',')} €</td>
                 </tr>`).join('');
         }
 
-        function toggleOtherReason(val) { document.getElementById('other-reason-container').classList.toggle('hidden', val !== 'Otros'); }
-        function toggleOtherPickup(val) { document.getElementById('other-pickup-container').classList.toggle('hidden', val !== 'Otros'); }
-        function handleTopicChange(val) { document.getElementById('surgeon-name-container').classList.toggle('hidden', val !== 'Certificación'); }
+        function simulateScan(type) {
+            const feedback = document.getElementById('scan-feedback');
+            const textarea = document.getElementById('return-serials');
+            textarea.value = (textarea.value ? textarea.value + "\n" : "") + (type === 'QR' ? 'QR-' : 'BC-') + Math.floor(100000 + Math.random() * 900000);
+            feedback.classList.remove('hidden');
+            setTimeout(() => feedback.classList.add('hidden'), 2000);
+        }
+
+        function handleModeConstraints(mode) {
+            if (mode === 'Online') document.getElementById('train-topic').value = 'Certificación';
+        }
+
+        function handleTopicLogic(topic) {
+            document.getElementById('surgeon-name-container').classList.toggle('hidden', topic !== 'Certificación');
+            if (topic === 'Cargado de Lente') document.getElementById('train-mode').value = 'Presencial';
+        }
+
+        function sendQReport() {
+            const body = `REPORTE DE CIERRE - ${currentPeriod}\n----------------------------------\nPseudofáquicas: ${document.getElementById('q-pseudo-qty').value} uds | ${document.getElementById('q-pseudo-euro').value} €\nFáquicas: ${document.getElementById('q-phakic-qty').value} uds | ${document.getElementById('q-phakic-euro').value} €\nViscoelásticos: ${document.getElementById('q-visco-qty').value} uds | ${document.getElementById('q-visco-euro').value} €\nRappel Total: ${document.getElementById('q-rappel-percent').innerText}`;
+            const recipients = "ana.montasell@biotechhealthcare.com,carlos@biotechhealthcare.com,anatoli@biotechhealthcare.com,ly.garcia@biotechhealthcare.com";
+            window.location.href = `mailto:${recipients}?subject=Reporte Cierre ${currentPeriod} - Innova Ocular&body=${encodeURIComponent(body)}`;
+        }
 
         function submitReturn() {
-            const reason = document.getElementById('return-reason').value;
-            const finalReason = reason === 'Otros' ? document.getElementById('return-other').value : reason;
-            const body = `Solicitud Devolución:\nCentro: ${document.getElementById('return-center').value}\nCant: ${document.getElementById('return-qty').value}\nMotivo: ${finalReason}\nSeries:\n${document.getElementById('return-serials').value}`;
-            window.location.href = `mailto:pedidos.iberia@biotechhealthcare.com?subject=Solicitud Devolución&body=${encodeURIComponent(body)}`;
+            const body = `SOLICITUD RECOGIDA\nCentro: ${document.getElementById('return-center').value}\nUds: ${document.getElementById('return-qty').value}\nSeries:\n${document.getElementById('return-serials').value}`;
+            window.location.href = `mailto:pedidos.iberia@biotechhealthcare.com?subject=Solicitud Recogida - ${document.getElementById('return-center').value}&body=${encodeURIComponent(body)}`;
         }
 
         function submitTraining() {
-            const topic = document.getElementById('train-topic').value;
-            const surgeon = document.getElementById('train-surgeon').value;
-            const body = `Formación: ${topic}\nCentro: ${document.getElementById('train-center').value}\nDuración: ${document.getElementById('train-duration').value}${topic === 'Certificación' ? '\nMédico: ' + surgeon : ''}`;
-            window.location.href = `mailto:ly.garcia@biotechhealthcare.com,vanessa.garcia@biotechhealthcare.com?subject=Formación&body=${encodeURIComponent(body)}`;
+            const body = `SOLICITUD FORMACIÓN\nCentro: ${document.getElementById('train-center').value}\nModalidad: ${document.getElementById('train-mode').value}\nTemática: ${document.getElementById('train-topic').value}`;
+            window.location.href = `mailto:formacion@biotechhealthcare.com?subject=Solicitud Formacion&body=${encodeURIComponent(body)}`;
         }
 
         function submitMarketing() {
-            const body = `Marketing: ${document.getElementById('mkt-center').value}\nMédicos: ${document.getElementById('mkt-doctors').value}\nDetalles: ${document.getElementById('mkt-details').value}`;
-            window.location.href = `mailto:sofia.gortari@biotechhealthcare.com?subject=Marketing&body=${encodeURIComponent(body)}`;
+            const items = Array.from(document.querySelectorAll('input[name="mkt-item"]:checked')).map(i => {
+                const qtyId = 'qty-' + i.value.toLowerCase().split(' ')[0];
+                const qty = document.getElementById(qtyId)?.value || '0';
+                return `${i.value} (${qty} uds)`;
+            }).join(', ');
+            const body = `SOLICITUD MARKETING\n----------------------------------\nCentro/s: ${document.getElementById('mkt-centers').value}\nDoctor: ${document.getElementById('mkt-doctor').value}\nMateriales:\n${items}`;
+            window.location.href = `mailto:sofia.gortari@biotechhealthcare.com?subject=Solicitud Marketing - Innova Ocular&body=${encodeURIComponent(body)}`;
+        }
+
+        function submitClinicalStudy() {
+            const topic = document.querySelector('input[name="study-topic"]:checked')?.value;
+            const body = `INTERÉS ESTUDIO CLÍNICO\n----------------------------------\nCentro: ${document.getElementById('study-center').value}\nDoctor: ${document.getElementById('study-doctor').value}\nLínea: ${topic}\nDetalles: ${document.getElementById('study-details').value}`;
+            window.location.href = `mailto:Arturo.Cuadrado@biotechhealthcare.com?subject=Interés Estudio Clínico&body=${encodeURIComponent(body)}`;
         }
     </script>
 </body>
