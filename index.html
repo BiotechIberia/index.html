@@ -30,7 +30,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: -9px;
         }
         input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 6px; background: #e2e8f0; border-radius: 3px;
+            width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px;
         }
     </style>
 </head>
@@ -43,7 +43,12 @@
                 <div class="logo-container">
                     <!-- Logotipo Biotech Iberia -->
                     <img src="logo_biotech.png" alt="Biotech Iberia" onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');">
-                    <div id="fallback-logo" class="hidden font-black text-3xl text-slate-800 tracking-tighter uppercase">Biotech <span class="text-blue-600">Iberia</span></div>
+                    <div id="fallback-logo" class="hidden flex items-center gap-2 font-black text-3xl text-slate-800 tracking-tighter uppercase">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="zap" class="text-white w-5 h-5"></i>
+                        </div>
+                        Biotech <span class="text-blue-600">Iberia</span>
+                    </div>
                 </div>
                 <div>
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded mb-2 shadow-lg shadow-blue-100">
@@ -56,14 +61,14 @@
             <!-- NAVEGACIÓN -->
             <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 overflow-x-auto no-scrollbar w-full lg:w-auto">
                 <button onclick="showTab('overview')" id="btn-overview" class="nav-btn active px-8 py-3 rounded-xl text-xs font-black transition-all uppercase whitespace-nowrap tracking-tight">Estrategia</button>
-                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight">Tarifa 2026</button>
+                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight font-black">Tarifa 2026</button>
                 <button onclick="showTab('tech')" id="btn-tech" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight">Especificaciones</button>
             </div>
         </div>
 
-        <!-- PESTAÑA 1: ESTRATEGIA -->
+        <!-- PESTAÑA 1: ESTRATEGIA (CON SIMULADOR) -->
         <div id="overview" class="tab-content active space-y-8 animate-in">
-            <!-- KPIs -->
+            <!-- KPIs SUPERIORES -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex items-center justify-between">
                     <div>
@@ -88,73 +93,70 @@
                 </div>
             </div>
 
-            <!-- LOGÍSTICA Y PRODUCTO DESTACADO -->
+            <!-- SECCIÓN CENTRAL: PEDIDOS + SIMULADOR -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 bg-blue-600 p-10 rounded-[48px] text-white shadow-xl shadow-blue-100 relative overflow-hidden">
+                <div class="bg-blue-600 p-10 rounded-[48px] text-white shadow-xl shadow-blue-100 flex flex-col justify-center relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-10 opacity-10">
-                        <i data-lucide="truck" size="140"></i>
+                        <i data-lucide="mail" size="120"></i>
                     </div>
                     <div class="relative z-10">
-                        <h3 class="font-black text-2xl uppercase tracking-tighter mb-6 flex items-center gap-3">
-                            <i data-lucide="zap"></i> Logística Biotech Iberia
+                        <h3 class="font-black text-2xl uppercase tracking-tighter mb-4 flex items-center gap-3">
+                            <i data-lucide="shopping-cart"></i> Pedidos y Soporte
                         </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/20">
-                                <h4 class="text-blue-200 text-[10px] font-black uppercase mb-2">Lentes Esféricas Stock</h4>
-                                <p class="text-2xl font-black italic tracking-tight">Entrega Garantizada 24 Horas</p>
-                            </div>
-                            <div class="bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/20">
-                                <h4 class="text-blue-200 text-[10px] font-black uppercase mb-2">Pedidos y Soporte</h4>
-                                <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-sm font-black hover:underline block truncate">pedidos.iberia@biotechhealthcare.com</a>
-                                <p class="text-[10px] text-blue-200 mt-1 uppercase italic font-bold">Resto de productos: Consultar plazo</p>
+                        <p class="text-blue-100 text-sm font-medium leading-relaxed mb-6">
+                            Para tramitar pedidos o consultar plazos de entrega, contacte directamente con:
+                        </p>
+                        <div class="bg-white/10 p-5 rounded-3xl backdrop-blur-md border border-white/20">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                                <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-sm font-black hover:underline tracking-tight break-all">pedidos.iberia@biotechhealthcare.com</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Miniatura Estratégica de la Lente Phakic -->
-                <div class="bg-white p-6 rounded-[48px] border border-slate-100 shadow-sm flex flex-col items-center justify-center text-center group">
-                    <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic" class="w-32 h-auto product-img mb-4 drop-shadow-md">
-                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Producto Estrella</p>
-                    <h4 class="font-black text-slate-800 text-sm">Eyecryl Phakic</h4>
+
+                <div class="lg:col-span-2 bg-slate-900 p-10 rounded-[48px] text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-center mb-6">
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Simulador Rappel Grupo 2026</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div>
+                                <h2 id="sales-display" class="text-6xl font-black mb-6 tracking-tighter tabular-nums text-white text-center md:text-left">750.000 €</h2>
+                                <input type="range" id="sales-slider" min="100000" max="2500000" step="50000" value="750000" oninput="updateSimulator(this.value)" class="mb-4">
+                                <p class="text-[10px] text-slate-500 font-bold uppercase text-center md:text-left">Consumo anual estimado</p>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div class="p-5 bg-white/5 rounded-3xl border border-white/10 flex justify-between items-center">
+                                    <span class="text-slate-500 text-[9px] font-black uppercase tracking-widest">Abono Grupo</span>
+                                    <p id="rappel-cash" class="text-2xl font-black text-emerald-400 tabular-nums tracking-tighter">18.750 €</p>
+                                </div>
+                                <div class="p-5 bg-white/5 rounded-3xl border border-white/10 flex justify-between items-center">
+                                    <span class="text-slate-500 text-[9px] font-black uppercase tracking-widest">Porcentaje</span>
+                                    <p id="rappel-percent" class="text-2xl font-black text-blue-500 tracking-tighter">2.5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- SIMULADOR DE RAPPEL -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-slate-900 p-10 rounded-[48px] text-white shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px] -mr-20 -mt-20"></div>
-                    <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">Simulador de Facturación Anual</p>
-                    <h2 id="sales-display" class="text-6xl font-black mb-10 tracking-tighter tabular-nums">750.000 €</h2>
-                    <input type="range" id="sales-slider" min="100000" max="2500000" step="50000" value="750000" oninput="updateSimulator(this.value)" class="mb-12">
-                    <div class="grid grid-cols-2 gap-8 pt-10 border-t border-slate-800">
-                        <div>
-                            <p class="text-slate-500 text-[10px] font-black uppercase mb-2 tracking-widest">Abono Rappel</p>
-                            <p id="rappel-cash" class="text-3xl font-black text-emerald-400 tabular-nums tracking-tighter">18.750 €</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-slate-500 text-[10px] font-black uppercase mb-2 tracking-widest">Porcentaje</p>
-                            <p id="rappel-percent" class="text-3xl font-black text-blue-500 tracking-tighter">2.5%</p>
-                        </div>
-                    </div>
+            <!-- PRODUCTO ESTRELLA Y CONDICIONES -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-[48px] border border-slate-100 shadow-sm flex flex-col items-center justify-center text-center group">
+                    <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic" class="w-36 h-auto product-img mb-4 drop-shadow-md" onerror="this.src='https://via.placeholder.com/150?text=Eyecryl+Phakic';">
+                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest tracking-tight">Solución Premium Phakic</p>
+                    <h4 class="font-black text-slate-800 text-base">Eyecryl Phakic</h4>
                 </div>
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col justify-center">
-                    <h3 class="font-black text-xl text-slate-800 mb-6 uppercase tracking-tight flex items-center gap-3">
-                        <i data-lucide="calculator" class="text-blue-600"></i> Condiciones de Rappel 2026
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-4 items-start">
-                            <div class="p-3 bg-amber-50 text-amber-600 rounded-2xl"><i data-lucide="alert-circle" size="20"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-slate-800">Rappel por Cuenta (Centro)</h4>
-                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Adicionalmente, se aplicará un rappel de hasta el <strong class="text-slate-900">5,50%</strong> si el centro individual supera los 150.000 € anuales.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="p-3 bg-blue-50 text-blue-600 rounded-2xl"><i data-lucide="info" size="20"></i></div>
-                            <div>
-                                <h4 class="font-bold text-sm text-slate-800">Escalado de Grupo</h4>
-                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">El porcentaje de rappel se ajusta dinámicamente según el volumen total consolidado del grupo Innova Ocular.</p>
-                            </div>
+                <div class="lg:col-span-2 bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col justify-center">
+                    <div class="flex gap-6 items-start">
+                        <div class="p-4 bg-amber-50 text-amber-600 rounded-3xl shrink-0"><i data-lucide="info" size="24"></i></div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase text-slate-800 tracking-tight mb-2">Rappel Adicional por Clínica</h4>
+                            <p class="text-xs text-slate-400 font-medium leading-relaxed italic">
+                                "Rappel individual acumulativo por cuenta de hasta el <strong class="text-slate-900 font-black">5,50%</strong> si el centro individual supera los <strong class="text-slate-900 font-black">150.000 €</strong> de facturación anual neta."
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -164,30 +166,30 @@
         <!-- PESTAÑA 2: TARIFA 2026 -->
         <div id="catalog" class="tab-content space-y-8 animate-in">
             <div class="bg-white rounded-[40px] border border-slate-100 shadow-sm overflow-hidden">
-                <div class="p-8 border-b flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="p-8 border-b flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-center md:text-left">
                     <div>
                         <h3 class="font-black text-slate-800 uppercase tracking-widest text-sm flex items-center gap-2">
                             <i data-lucide="list-checks" class="text-blue-600 w-4 h-4"></i> Tarifa Neta Grupo Innova 2026
                         </h3>
-                        <p class="text-slate-400 text-[10px] font-bold mt-1 uppercase italic">* Los precios se revisarán anualmente</p>
+                        <p class="text-slate-400 text-[10px] font-bold mt-1 uppercase italic tracking-tight">* Los precios se revisarán anualmente</p>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead class="bg-slate-50 border-b">
                             <tr>
-                                <th class="p-8 text-[11px] font-black text-slate-400 uppercase tracking-widest">Producto</th>
-                                <th class="p-8 text-[11px] font-black text-slate-400 uppercase tracking-widest">Descripción Técnica / Rango</th>
-                                <th class="p-8 text-[11px] font-black text-slate-400 uppercase tracking-widest text-right">Precio Neto (€)</th>
+                                <th class="p-8 text-[10px] font-black text-slate-400 uppercase tracking-widest">Producto</th>
+                                <th class="p-8 text-[10px] font-black text-slate-400 uppercase tracking-widest">Descripción Técnica</th>
+                                <th class="p-8 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right">Precio (€)</th>
                             </tr>
                         </thead>
-                        <tbody id="product-list" class="divide-y divide-slate-50">
-                            <!-- Inyectado por JS -->
+                        <tbody id="product-list" class="divide-y divide-slate-50 text-sm">
+                            <!-- JS inyecta los datos aquí -->
                         </tbody>
                     </table>
                 </div>
                 <div class="p-6 bg-slate-50 text-center border-t">
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest tracking-tighter">Precios unitarios. I.V.A. no incluido. Vigencia: Año Natural 2026.</p>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Precios unitarios. I.V.A. no incluido. Vigencia Año Natural 2026.</p>
                 </div>
             </div>
         </div>
@@ -195,38 +197,47 @@
         <!-- PESTAÑA 3: ESPECIFICACIONES TÉCNICAS -->
         <div id="tech" class="tab-content space-y-10 animate-in">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Ficha Phakic con Imagen -->
+                <!-- Ficha Phakic (ORDEN Y EXPLICACIÓN ACTUALIZADOS) -->
                 <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm relative overflow-hidden">
                     <div class="flex justify-between items-start mb-8 border-b pb-6 relative z-10">
                         <div>
                             <h4 class="font-black text-2xl text-slate-900 tracking-tight">Eyecryl Phakic</h4>
-                            <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-1">Corrección de Altas Ametropías</p>
+                            <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-1">Gama de Corrección Intraocular</p>
                         </div>
-                        <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic Lens" class="w-20 h-auto product-img drop-shadow-xl">
+                        <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic" class="w-20 h-auto product-img drop-shadow-xl" onerror="this.src='https://via.placeholder.com/100?text=Lens';">
                     </div>
                     <div class="space-y-6 relative z-10">
+                        <!-- Explicación de Potencias -->
+                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                            <h5 class="text-[11px] font-black text-blue-700 uppercase mb-2">Entendiendo la Potencia</h5>
+                            <p class="text-[12px] text-blue-900 leading-relaxed">
+                                <strong>Baja Potencia:</strong> Dirigida a ametropías estándar (Miopía hasta -6D).<br>
+                                <strong>Alta Potencia:</strong> Diseñada para ametropías extremas, permitiendo correcciones de hasta -25D o +10D con precisión micrométrica.
+                            </p>
+                        </div>
+                        
                         <div class="grid grid-cols-1 gap-2">
                             <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
-                                <span class="text-[9px] font-black uppercase text-slate-400">Alta Potencia (SPH)</span>
+                                <span class="text-[9px] font-black uppercase text-slate-400">1. Baja Potencia (E/T)</span>
+                                <span class="text-[10px] font-bold text-slate-700">+2.75D a -6.00D (CYL hasta +5D)</span>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                                <span class="text-[9px] font-black uppercase text-slate-400">2. Alta Potencia (SPH)</span>
                                 <span class="text-[10px] font-bold text-slate-700">+3D a +10D | -6.50D a -25D</span>
                             </div>
                             <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-indigo-100">
-                                <span class="text-[9px] font-black uppercase text-slate-400">Alta Potencia (TOR)</span>
-                                <span class="text-[10px] font-bold text-slate-700">Cilindros hasta +5D</span>
+                                <span class="text-[9px] font-black uppercase text-slate-400">3. Alta Potencia (TOR)</span>
+                                <span class="text-[10px] font-bold text-slate-700">Rangos Extremos con CYL +5D</span>
                             </div>
                             <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
-                                <span class="text-[9px] font-black uppercase text-slate-400">Baja Potencia</span>
-                                <span class="text-[10px] font-bold text-slate-700">+2.75D a -6.00D (incl. CYL)</span>
+                                <span class="text-[9px] font-black uppercase text-slate-400">4. Customizada</span>
+                                <span class="text-[10px] font-bold text-slate-700">Tallas Especiales (11.0 / 14.5mm)</span>
                             </div>
                         </div>
-                        <ul class="text-[13px] text-slate-500 space-y-2 font-medium">
-                            <li class="flex gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Puerto central de 380μm para flujo de humor acuoso.</li>
-                            <li class="flex gap-2"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Diseño Plate-Haptic de 4 puntos para máxima estabilidad.</li>
-                        </ul>
                     </div>
                 </div>
 
-                <!-- Ficha Optiflex Xtense -->
+                <!-- Ficha Xtense -->
                 <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
                     <div class="flex justify-between items-start mb-8 border-b pb-6">
                         <div>
@@ -235,42 +246,10 @@
                         </div>
                         <i data-lucide="infinity" class="text-amber-600" size="32"></i>
                     </div>
-                    <ul class="space-y-4 text-sm font-medium text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Visión continua: Rango visual extendido real sin escalones.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Tecnología no difractiva: Elimina halos y deslumbramientos nocturnos.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Material Hidrofóbico libre de vacuolas para transparencia total.</li>
-                    </ul>
-                </div>
-
-                <!-- Ficha Optiflex Trio Plus -->
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
-                    <div class="flex justify-between items-start mb-8 border-b pb-6">
-                        <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Optiflex Trio Plus</h4>
-                            <p class="text-indigo-600 text-[10px] font-black uppercase tracking-widest mt-1">Hydrophobic Trifocal IOL</p>
-                        </div>
-                        <i data-lucide="layers" class="text-indigo-600" size="32"></i>
-                    </div>
-                    <ul class="space-y-4 text-sm font-medium text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Reparto energético equilibrado: 50% lejos / 25% interm. / 25% cerca.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Filtro de luz azul integrado para protección de la mácula.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Diseño asférico para sensibilidad al contraste superior.</li>
-                    </ul>
-                </div>
-
-                <!-- Ficha Optiflex Sert -->
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
-                    <div class="flex justify-between items-start mb-8 border-b pb-6">
-                        <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Optiflex Sert</h4>
-                            <p class="text-emerald-600 text-[10px] font-black uppercase tracking-widest mt-1">Preloaded Delivery System</p>
-                        </div>
-                        <i data-lucide="box" class="text-emerald-600" size="32"></i>
-                    </div>
-                    <ul class="space-y-4 text-sm font-medium text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Sistema precargado "One-step": Seguridad y rapidez quirúrgica.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Incisión micro de 2.2mm para estabilidad astigmática.</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Portfolio completo disponible en versión Monofocal y EDOF.</li>
+                    <ul class="space-y-4 text-[13px] font-medium text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="text-amber-500 w-4 h-4 shrink-0"></i> Visión continua: Rango visual extendido sin zonas muertas.</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="text-amber-500 w-4 h-4 shrink-0"></i> Tecnología no difractiva: Visión nocturna libre de halos.</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="text-amber-500 w-4 h-4 shrink-0"></i> Material Hidrofóbico brillante libre de vacuolas.</li>
                     </ul>
                 </div>
             </div>
@@ -278,7 +257,6 @@
     </div>
 
     <script>
-        // DATOS DE RAPPEL
         const rappelScale = [
             { limit: 250000, rate: 0.015 }, { limit: 500000, rate: 0.020 },
             { limit: 750000, rate: 0.025 }, { limit: 1000000, rate: 0.030 },
@@ -286,63 +264,69 @@
             { limit: 1750000, rate: 0.045 }, { limit: 2000000, rate: 0.050 }
         ];
 
-        // DATOS DE TARIFA CON DESCRIIPCIONES
+        // PRODUCTOS CON ORDEN CORREGIDO SEGÚN SOLICITUD
         const products = [
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (sph)', price: 500, desc: 'Lente plegable de cámara posterior para miopías e hipermetropías extremas.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (tor)', price: 800, desc: 'Corrección premium de astigmatismo elevado con cilindros hasta +5D.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic baja potencia', price: 500, desc: 'Solución eficaz para ametropías moderadas en material hidrofílico biocompatible.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic Custom', price: 1200, desc: 'Tallaje personalizado (11.0mm a 14.5mm) para anatomías oculares especiales.' },
+            // PHAKIC - ORDEN SOLICITADO
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic baja potencia (esf/tor)', price: 500, desc: 'Ametropías moderadas. Rango: +2.75D a -6.00D (con o sin CYL hasta +5D).' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (sph)', price: 500, desc: 'Miopía e hipermetropía extrema. Rango: +3D/+10D y -6.50D/-25D.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (tor)', price: 800, desc: 'Corrección de astigmatismo en rangos extremos con cilindros de hasta +5D.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic Custom', price: 1200, desc: 'Tallaje especial personalizado (11 / 11.5 / 14 / 14.5mm).' },
             
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio 3FLA6', price: 300, desc: 'Trifocalidad difractiva HD para independencia total de gafas.' },
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio TORICA', price: 400, desc: 'Corrección simultánea de presbicia y astigmatismo corneal.' },
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio Plus', price: 375, desc: 'Nueva generación en material hidrofóbico brillante libre de vacuolas.' },
-            
-            { cat: 'EDOF', name: 'Optiflex Xtense Comfort Plus', price: 375, desc: 'Visión continua de lejos a intermedia (EDOF) sin distorsiones nocturnas.' },
-            { cat: 'EDOF', name: 'Eyecryl SERT', price: 105, desc: 'Lente EDOF precargada para inserción automatizada fluida y segura.' },
-            
-            { cat: 'MONOFOCAL', name: 'Eyecryl Comfort NY (Preloaded)', price: 55, desc: 'Monofocal asférica de alta resolución con sistema de inyección integrado.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Plus (Hydrophobic non preloaded)', price: 45, desc: 'Material hidrofóbico de gran estabilidad capsular y nitidez óptica.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Toric', price: 200, desc: 'Monofocal tórica para corrección precisa de astigmatismo post-catarata.' },
-
-            { cat: 'OVDs', name: 'Bio Hyalur 1ml PFS', price: 9.90, desc: 'Hialuronato sódico 1% de alto peso molecular para protección endotelial.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Duo', price: 20, desc: 'Pack combinado Cohesivo (10%) + Dispersivo (24%) para cirugía completa.' },
-            { cat: 'OVDs', name: 'Eyevisc 2% 2ml PFS', price: 7.70, desc: 'Agente dispersivo de HPMC para mantenimiento de cámara anterior.' },
-
-            { cat: 'VR', name: 'BioBlue 90 Plus', price: 45, desc: 'Colorante premium para visualización de membrana limitante interna (ILM).' },
-            { cat: 'VR', name: 'BioSil 10ml', price: 59, desc: 'Aceite de silicona purificado para taponamiento vítreo prolongado.' },
-            { cat: 'VR', name: 'Bio Octane', price: 65, desc: 'Perfluorocarbono líquido pesado para cirugía de retina compleja.' },
-            { cat: 'ANILLO', name: 'Bioring (par)', price: 265, desc: 'Anillos intraestromales para tratamiento de queratocono y ectasias.' },
-            { cat: 'OTROS', name: 'Iris Retractors', price: 40, desc: 'Ganchos flexibles para dilatación pupilar mecánica (caja 5 uds).' }
+            // RESTO DE GAMA
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio 3FLA6', price: 300, desc: 'Trifocal difractiva HD para independencia total de gafas.' },
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio TORICA', price: 400, desc: 'Corrección de presbicia y astigmatismo corneal.' },
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio Plus', price: 375, desc: 'Nueva generación trifocal con material hidrofóbico avanzado.' },
+            { cat: 'EDOF', name: 'Optiflex Xtense Comfort Plus', price: 375, desc: 'Tecnología EDOF no difractiva de visión continua sin halos nocturnos.' },
+            { cat: 'EDOF', name: 'Eyecryl SERT', price: 105, desc: 'Lente EDOF precargada para una inserción automatizada fluida.' },
+            { cat: 'EDOF', name: 'Eyecryl SERT Toric cyl 1', price: 200, desc: 'Corrección de astigmatismo leve en sistema precargado.' },
+            { cat: 'EDOF', name: 'Eyecryl SERT Toric otros cyls', price: 215, desc: 'EDOF tórica precargada para cilindros elevados.' },
+            { cat: 'MULTIFOCAL', name: 'Eyecryl Actv', price: 200, desc: 'Lente bifocal difractiva para visión de lejos y cerca.' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl Plus (hydrophobic not preloaded)', price: 45, desc: 'Material hidrofóbico glisten-free de gran estabilidad capsular.' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl 600 (hydrophilic non preloaded)', price: 35, desc: 'Monofocal hidrofílica estándar de alto rendimiento.' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl Comfort NY (preloaded)', price: 55, desc: 'Lente monofocal asférica HD en sistema de inyección precargado.' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl Toric', price: 200, desc: 'Monofocal tórica para corrección precisa del astigmatismo.' },
+            { cat: 'OVDs', name: 'Eyevisc 2% 2ml PFS', price: 7.70, desc: 'Agente viscoelástico dispersivo basado en HPMC al 2%.' },
+            { cat: 'OVDs', name: 'Bio Hyalur 1ml PFS', price: 9.90, desc: 'Hialuronato sódico al 1% para protección endotelial superior.' },
+            { cat: 'OVDs', name: 'Bio Hyalur Plus 1ml PFS', price: 10.80, desc: 'Hialuronato sódico al 1.4% con mayor capacidad de mantenimiento.' },
+            { cat: 'OVDs', name: 'Bio Hyalur HV 1ml PFS', price: 12.00, desc: 'Viscoelástico de alta viscosidad (2.4%) para casos quirúrgicos.' },
+            { cat: 'OVDs', name: 'Bio Hyalur SV 1ml PFS', price: 12.50, desc: 'Súper viscosidad (3.0%) para máximo espacio.' },
+            { cat: 'OVDs', name: 'Bio Hyalur Duo (10% and 24%)', price: 20.00, desc: 'Pack combinado Cohesivo (10%) + Dispersivo (24%) para protección total.' },
+            { cat: 'OVDs', name: 'Bio Hyalur CS 1ml PFS', price: 23.00, desc: 'Fórmula especializada para protección corneal.' },
+            { cat: 'OVDs', name: 'Bio Hyalur LVD 1ml PFS', price: 24.50, desc: 'Hialuronato de baja viscosidad para rápida eliminación.' },
+            { cat: 'COLORANTES', name: 'Bio Blue 1ml PFS', price: 9.50, desc: 'Azul tripán purificado para tinción capsular anterior.' },
+            { cat: 'OTROS', name: 'Biovision PMMA CTR (Clear)', price: 20.00, desc: 'Anillo de tensión capsular transparente estándar.' },
+            { cat: 'OTROS', name: 'Biovision PMMA CTR (Blue)', price: 20.00, desc: 'Anillo de tensión capsular tintado en azul.' },
+            { cat: 'OTROS', name: 'Iris Retractors', price: 40.00, desc: 'Ganchos flexibles de iris (Caja de 5 unidades).' },
+            { cat: 'VR', name: 'BioBlue 90 Plus', price: 45.00, desc: 'Colorante premium para visualización de la membrana limitante interna.' },
+            { cat: 'VR', name: 'Bio Blue DUO', price: 55.00, desc: 'Doble tinción ILM/ERM para cirugía vitreoretinal.' },
+            { cat: 'VR', name: 'BioSil 10ml', price: 59.00, desc: 'Aceite de silicona de alta pureza (1000/5000 cSt).' },
+            { cat: 'VR', name: 'Bio Octane', price: 65.00, desc: 'Perfluorocarbono pesado para tamponamiento vítreo.' },
+            { cat: 'VR', name: 'Bio Decaline', price: 65.00, desc: 'Líquido pesado purificado para cirugía de retina.' },
+            { cat: 'BIORING', name: 'Bioring (par)', price: 265.00, desc: 'Anillos intraestromales para tratamiento de queratocono.' }
         ];
 
-        // INICIALIZACIÓN
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
             renderProducts();
             updateSimulator(750000);
         });
 
-        // NAVEGACIÓN ENTRE ABAS
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => {
                 b.classList.remove('active');
                 b.classList.add('text-slate-400');
             });
-            
             document.getElementById(id).classList.add('active');
             const activeBtn = document.getElementById('btn-' + id);
             activeBtn.classList.add('active');
             activeBtn.classList.remove('text-slate-400');
-            
             lucide.createIcons();
         }
 
-        // FUNCIÓN DEL SIMULADOR
         function updateSimulator(val) {
             const sales = parseInt(val);
             document.getElementById('sales-display').innerText = sales.toLocaleString() + ' €';
-            
             let rate = 0;
             for (let i = rappelScale.length - 1; i >= 0; i--) {
                 if (sales >= rappelScale[i].limit) {
@@ -350,20 +334,18 @@
                     break;
                 }
             }
-            
             const cash = sales * rate;
             document.getElementById('rappel-percent').innerText = (rate * 100).toFixed(1) + '%';
             document.getElementById('rappel-cash').innerText = cash.toLocaleString() + ' €';
         }
 
-        // GENERACIÓN DE LA TABLA DE PRECIOS
         function renderProducts() {
             const list = document.getElementById('product-list');
             if (!list) return;
             list.innerHTML = products.map(p => `
-                <tr class="hover:bg-slate-50 transition-colors text-sm">
+                <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-8">
-                        <div class="font-black text-slate-800 uppercase tracking-tight">${p.name}</div>
+                        <div class="font-black text-slate-800 text-sm uppercase tracking-tight">${p.name}</div>
                         <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-[9px] font-black uppercase tracking-tighter">${p.cat}</span>
                     </td>
                     <td class="p-8">
