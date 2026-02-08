@@ -3,365 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Comercial Innova Ocular 2026</title>
-    <!-- Tailwind CSS -->
+    <title>Biotech Iberia | Innova Ocular 2026</title>
+    <!-- Tailwind para diseño ultra-rápido -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React y ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Babel para JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Recharts -->
-    <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
-    <!-- Lucide Icons -->
+    <!-- Chart.js: Mucho más ligero y rápido que la librería anterior -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide para iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: #f8fafc;
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        
-        /* Estilos personalizados para el slider de rango */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; margin: 0; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .nav-btn.active { background-color: #2563eb; color: white; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2); }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 24px;
-            width: 24px;
-            border-radius: 50%;
-            background: #2563eb;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
-            border: 3px solid white;
-            margin-top: -10px;
+            -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%;
+            background: #2563eb; cursor: pointer; border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: -9px;
         }
         input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: #e2e8f0;
-            border-radius: 3px;
-        }
-        
-        #loading-screen {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            z-index: 9999;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #2563eb;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            width: 100%; height: 6px; background: #e2e8f0; border-radius: 3px;
         }
     </style>
 </head>
-<body>
-    <div id="loading-screen">
-        <div class="loader-spinner"></div>
-        <div class="text-center">
-            <p id="loading-text" class="text-slate-400 font-black text-xs tracking-[0.3em] uppercase">Iniciando Dashboard Biotech...</p>
-            <p id="error-hint" class="text-red-400 text-[10px] mt-4 hidden uppercase font-bold">Si no carga, revisa la conexión o refresca</p>
+<body class="p-4 md:p-10 pb-20">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- HEADER BIOTECH IBERIA -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded mb-4 shadow-lg shadow-blue-100">
+                    <i data-lucide="zap" class="w-3 h-3"></i> Biotech Iberia
+                </div>
+                <h1 class="text-5xl font-black text-slate-900 tracking-tighter">Innova Ocular</h1>
+                <p class="text-slate-400 font-bold mt-1 uppercase text-sm">Acuerdo Estratégico 2026</p>
+            </div>
+            
+            <!-- NAVEGACIÓN -->
+            <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
+                <button onclick="showTab('overview')" id="btn-overview" class="nav-btn active px-6 py-3 rounded-xl text-xs font-black transition-all">ESTRATEGIA</button>
+                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-6 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all">TARIFARIO</button>
+                <button onclick="showTab('rappel')" id="btn-rappel" class="nav-btn px-6 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all">SIMULADOR</button>
+            </div>
+        </div>
+
+        <!-- TAB 1: ESTRATEGIA -->
+        <div id="overview" class="tab-content active space-y-8 animate-fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Lentes Pseudofáquicas</p>
+                        <h3 class="text-3xl font-black text-slate-900 mt-1">2.500 <span class="text-xs font-bold text-slate-300">UDS</span></h3>
+                    </div>
+                    <div class="p-4 bg-blue-50 text-blue-600 rounded-2xl"><i data-lucide="target"></i></div>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Lentes Fáquicas</p>
+                        <h3 class="text-3xl font-black text-slate-900 mt-1">150 <span class="text-xs font-bold text-slate-300">UDS</span></h3>
+                    </div>
+                    <div class="p-4 bg-indigo-50 text-indigo-600 rounded-2xl"><i data-lucide="award"></i></div>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Viscoelásticos</p>
+                        <h3 class="text-3xl font-black text-slate-900 mt-1">3.500 <span class="text-xs font-bold text-slate-300">UDS</span></h3>
+                    </div>
+                    <div class="p-4 bg-emerald-50 text-emerald-600 rounded-2xl"><i data-lucide="package"></i></div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm">
+                <h3 class="text-xs font-black text-slate-400 uppercase mb-8 tracking-widest">Cuota de Mercado vs Grupo Innova</h3>
+                <div style="height: 300px; position: relative;">
+                    <canvas id="chartObjectives"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: TARIFARIO -->
+        <div id="catalog" class="tab-content space-y-8">
+            <div class="bg-white rounded-[32px] border border-slate-100 shadow-sm overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 border-b">
+                        <tr>
+                            <th class="p-6 text-[10px] font-black text-slate-400 uppercase">Producto</th>
+                            <th class="p-6 text-[10px] font-black text-slate-400 uppercase text-right">Precio Innova (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list" class="divide-y divide-slate-50">
+                        <!-- Se llena con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 3: SIMULADOR -->
+        <div id="rappel" class="tab-content grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="bg-slate-900 p-12 rounded-[56px] text-white shadow-2xl relative overflow-hidden">
+                <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">Consumo Anual Estimado</p>
+                <h2 id="sales-display" class="text-7xl font-black mb-12 tracking-tighter leading-none">750.000 €</h2>
+                <input type="range" id="sales-slider" min="100000" max="2500000" step="50000" value="750000" oninput="updateSimulator(this.value)" class="mb-16">
+                
+                <div class="grid grid-cols-2 gap-8 pt-10 border-t border-slate-800">
+                    <div>
+                        <p class="text-slate-500 text-[10px] font-black uppercase mb-2 tracking-widest">Abono Rappel</p>
+                        <p id="rappel-cash" class="text-4xl font-black text-emerald-400 tracking-tighter">18.750 €</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-slate-500 text-[10px] font-black uppercase mb-2 tracking-widest">Porcentaje</p>
+                        <p id="rappel-percent" class="text-4xl font-black text-blue-500 tracking-tighter">2.5%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
+                    <div class="flex gap-6 items-start">
+                        <div class="p-4 bg-blue-50 text-blue-600 rounded-2xl"><i data-lucide="info"></i></div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase text-slate-800 tracking-tight">Bonus Biotech Iberia</h4>
+                            <p class="text-xs text-slate-400 mt-2 font-medium leading-relaxed italic">
+                                "Rappel adicional por cuenta (centro) de hasta el 5,50% si supera los 150.000 € anuales."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-600 p-10 rounded-[48px] text-white shadow-xl shadow-blue-100">
+                    <div class="flex gap-6 items-start">
+                        <div class="p-4 bg-white/10 rounded-2xl"><i data-lucide="truck"></i></div>
+                        <div>
+                            <h4 class="font-black text-sm uppercase tracking-widest">Logística Premium</h4>
+                            <p class="text-xs text-blue-100 mt-2 font-bold uppercase tracking-tighter">Suministro garantizado en 24h para toda la red.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="root"></div>
+    <script>
+        // DATOS
+        const products = [
+            { name: 'EYECRYL PHAKIC BAJA POTENCIA', price: 500, desc: 'Fáquica Esférica' },
+            { name: 'EYECRYL PHAKIC ALTA POTENCIA', price: 770, desc: 'Fáquica Alta Miopía' },
+            { name: 'OPTIFLEX TRIO 3FLA6', price: 395, desc: 'Lente Trifocal' },
+            { name: 'EYECRYL SERT EDOF', price: 250.75, desc: 'EDOF Precargada' },
+            { name: 'BIO-HYALUR 1% 1ML', price: 12.00, desc: 'Viscoelástico' },
+            { name: 'BIO-HYALUR DUO', price: 22.95, desc: 'Viscoelástico Pro' },
+            { name: 'BIOBLUE 90 PLUS', price: 39.00, desc: 'Colorante Vitreoretinal' }
+        ];
 
-    <script type="text/babel">
-        // El problema principal era el uso de 'class' en lugar de 'className' en JSX
-        // lo que impedía que Babel procesara el script correctamente.
+        const rappelScale = [
+            { limit: 250000, rate: 0.015 }, { limit: 500000, rate: 0.020 },
+            { limit: 750000, rate: 0.025 }, { limit: 1000000, rate: 0.030 },
+            { limit: 1250000, rate: 0.035 }, { limit: 1500000, rate: 0.040 },
+            { limit: 1750000, rate: 0.045 }, { limit: 2000000, rate: 0.050 }
+        ];
 
-        const startApp = () => {
-            const { useState, useMemo, useEffect } = React;
-            const RC = window.Recharts;
-            
-            if (!RC) {
-                console.error("Recharts no se ha cargado correctamente.");
-                return;
-            }
-            
-            const { 
-                BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
-            } = RC;
-
-            const Icon = ({ name, size = 20, className = "" }) => {
-                useEffect(() => {
-                    if (window.lucide) window.lucide.createIcons();
-                }, [name]);
-                return <i data-lucide={name} style={{ width: size, height: size }} className={`inline-block shrink-0 ${className}`}></i>;
-            };
-
-            const App = () => {
-                const [activeTab, setActiveTab] = useState('overview');
-                const [simulatedSales, setSimulatedSales] = useState(750000);
-
-                useEffect(() => {
-                    const loader = document.getElementById('loading-screen');
-                    if (loader) {
-                        loader.style.transition = 'opacity 0.4s ease';
-                        loader.style.opacity = '0';
-                        setTimeout(() => loader.remove(), 400);
-                    }
-                }, []);
-
-                const objectives = [
-                    { label: 'Lentes Pseudofáquicas', total: 26500, goal: 2500, icon: 'target', color: '#3b82f6' },
-                    { label: 'Lentes Fáquicas', total: 2200, goal: 150, icon: 'award', color: '#6366f1' },
-                    { label: 'Viscoelásticos', total: 38000, goal: 3500, icon: 'package', color: '#10b981' }
-                ];
-
-                const rappelScale = [
-                    { limit: 250000, rate: 0.015 }, { limit: 500000, rate: 0.02 },
-                    { limit: 750000, rate: 0.025 }, { limit: 1000000, rate: 0.03 },
-                    { limit: 1250000, rate: 0.035 }, { limit: 1500000, rate: 0.04 },
-                    { limit: 1750000, rate: 0.045 }, { limit: 2000000, rate: 0.05 }
-                ];
-
-                const products = [
-                    { cat: 'Fáquicas', name: 'EYECRYL PHAKIC BAJA POTENCIA', price: 500.00, desc: 'SPH +0.50 a +2.75 / -0.50 a -6.00' },
-                    { cat: 'Fáquicas', name: 'EYECRYL PHAKIC ALTA POTENCIA (SPH)', price: 770.00, desc: 'SPH +3.00 a +10.00 / -6.50 a -25.00' },
-                    { cat: 'Fáquicas', name: 'EYECRYL PHAKIC ALTA POTENCIA (TOR)', price: 990.00, desc: 'Cilindros hasta +5D' },
-                    { cat: 'Fáquicas', name: 'EYECRYL PHAKIC CUSTOM', price: 1450.00, desc: 'SPH > -25D / +10D o CIL > +5D' },
-                    { cat: 'Premium', name: 'OPTIFLEX TRIO 3FLA6', price: 395.00, desc: 'Lente Trifocal' },
-                    { cat: 'Premium', name: 'OPTIFLEX TRIO TORICA', price: 570.00, desc: 'Lente Trifocal Tórica' },
-                    { cat: 'Premium', name: 'OPTIFLEX TRIO PLUS', price: 420.00, desc: 'Trifocal Nueva Generación' },
-                    { cat: 'EDOF', name: 'EYECRYL SERT', price: 125.00, desc: 'EDOF Precargada' },
-                    { cat: 'EDOF', name: 'EYECRYL SERT TORIC', price: 220.00, desc: 'EDOF Tórica' },
-                    { cat: 'Mono', name: 'OPTIFLEX GENESIS COMFORT NY', price: 95.00, desc: 'Monofocal Precargada' },
-                    { cat: 'Visco', name: 'BIO HYALUR 1ML PFS', price: 13.73, desc: 'Hialuronato 1%' },
-                    { cat: 'Visco', name: 'BIO HYALUR PLUS 1ML PFS', price: 15.45, desc: 'Hialuronato 1.4%' },
-                    { cat: 'Visco', name: 'BIO HYALUR DUO', price: 26.68, desc: 'Cohesivo + Dispersivo' },
-                    { cat: 'Visco', name: 'BIO HYALUR HV 1ML PFS', price: 17.25, desc: 'Hialuronato 2.4%' },
-                    { cat: 'Visco', name: 'BIO HYALUR SV 1ML PFS', price: 18.13, desc: 'Hialuronato 3.0%' },
-                    { cat: 'Otros', name: 'BIO BLUE 1ML PFS', price: 9.25, desc: 'Colorante' },
-                    { cat: 'Otros', name: 'BIOBLUE 90 PLUS', price: 39.00, desc: 'ERM/ILM' },
-                    { cat: 'Otros', name: 'BIOSIL 10ML', price: 65.00, desc: 'VR Silicona' },
-                    { cat: 'Otros', name: 'BIO OCTANE', price: 50.00, desc: 'Perfluorocarbono' }
-                ];
-
-                const currentRappel = useMemo(() => {
-                    const level = [...rappelScale].reverse().find(r => simulatedSales >= r.limit);
-                    return level ? level : { limit: 0, rate: 0 };
-                }, [simulatedSales]);
-
-                const rappelAmount = simulatedSales * currentRappel.rate;
-
-                return (
-                    <div className="max-w-7xl mx-auto p-4 md:p-10 pb-24 animate-fade-in">
-                        {/* Header */}
-                        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
-                            <div>
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.25em] rounded-xl mb-6 shadow-xl shadow-blue-100">
-                                    <Icon name="zap" size={14} />
-                                    Acuerdo Biotech 2026
-                                </div>
-                                <h1 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-none">Innova Ocular</h1>
-                                <p className="text-slate-400 font-bold text-xl mt-4 uppercase tracking-tight">Tarifa Preferente y Objetivos</p>
-                            </div>
-                            <div className="flex bg-white p-2 rounded-3xl shadow-2xl border border-slate-100 overflow-x-auto no-scrollbar">
-                                {['overview', 'catalog', 'rappel'].map(tab => (
-                                    <button key={tab} onClick={() => setActiveTab(tab)}
-                                        className={`px-10 py-4 rounded-2xl text-sm font-black transition-all duration-300 whitespace-nowrap ${activeTab === tab ? 'bg-blue-600 text-white shadow-2xl shadow-blue-200' : 'text-slate-400 hover:bg-slate-50'}`}>
-                                        {tab === 'overview' ? 'ESTRATEGIA' : tab === 'catalog' ? 'TARIFARIO' : 'SIMULADOR'}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Contenido */}
-                        {activeTab === 'overview' && (
-                            <div className="grid grid-cols-1 gap-10">
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                    {objectives.map((obj, i) => (
-                                        <div key={i} className="bg-white p-12 rounded-[50px] shadow-sm border border-slate-100 flex flex-col justify-between group hover:border-blue-300 transition-all duration-500">
-                                            <div className="flex justify-between items-start mb-12">
-                                                <div className="p-5 rounded-3xl bg-blue-50 text-blue-600 group-hover:scale-110 transition-transform">
-                                                    <Icon name={obj.icon} size={32} />
-                                                </div>
-                                                <span className="text-[11px] font-black text-slate-300 uppercase tracking-widest">OBJ 2026</span>
-                                            </div>
-                                            <div>
-                                                <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">{obj.label}</p>
-                                                <h3 className="text-5xl font-black text-slate-900 tracking-tighter tabular-nums">
-                                                    {obj.goal.toLocaleString()} <span className="text-base font-bold text-slate-300">UDS</span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <div className="bg-white p-12 rounded-[60px] shadow-sm border border-slate-100">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-8">
-                                        <h3 className="font-black text-3xl text-slate-900 tracking-tight">Potencial vs Total Grupo</h3>
-                                        <div className="flex items-center gap-10">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-4 h-4 bg-slate-200 rounded-full"></div>
-                                                <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Grupo Total</span>
-                                            </div>
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-4 h-4 bg-blue-600 rounded-full shadow-lg shadow-blue-100"></div>
-                                                <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Nuestra Cuota</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="h-96 w-full">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <BarChart data={objectives} layout="vertical" margin={{ left: 20, right: 60, top: 0, bottom: 0 }}>
-                                                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f5f9" />
-                                                <XAxis type="number" hide />
-                                                <YAxis dataKey="label" type="category" width={180} tick={{fontSize: 13, fontWeight: 900, fill: '#64748b'}} />
-                                                <Tooltip cursor={{fill: '#f8fafc'}} contentStyle={{borderRadius: '32px', border: 'none', boxShadow: '0 30px 60px -12px rgb(0 0 0 / 0.15)', padding: '24px'}} />
-                                                <Bar dataKey="total" fill="#f1f5f9" radius={[0, 16, 16, 0]} barSize={45} />
-                                                <Bar dataKey="goal" fill="#2563eb" radius={[0, 16, 16, 0]} barSize={45} />
-                                            </BarChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'catalog' && (
-                            <div className="bg-white rounded-[50px] shadow-sm border border-slate-100 overflow-hidden">
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left">
-                                        <thead className="bg-slate-50 border-b border-slate-100 text-slate-400">
-                                            <tr>
-                                                <th className="p-10 text-[11px] font-black uppercase tracking-[0.25em]">Producto y Especificación</th>
-                                                <th className="p-10 text-[11px] font-black uppercase tracking-[0.25em]">Categoría</th>
-                                                <th className="p-10 text-[11px] font-black uppercase tracking-[0.25em] text-right">Precio Neto (€)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-slate-50">
-                                            {products.map((p, i) => (
-                                                <tr key={i} className="hover:bg-blue-50/20 transition-all duration-300">
-                                                    <td className="p-10">
-                                                        <div className="font-black text-slate-900 text-base tracking-tight uppercase mb-1">{p.name}</div>
-                                                        <div className="text-xs text-slate-400 font-bold tracking-tight uppercase">{p.desc}</div>
-                                                    </td>
-                                                    <td className="p-10">
-                                                        <span className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-tight ${
-                                                            p.cat === 'Fáquicas' ? 'bg-indigo-100 text-indigo-700' :
-                                                            p.cat === 'Premium' ? 'bg-amber-100 text-amber-700' :
-                                                            p.cat === 'Visco' ? 'bg-emerald-100 text-emerald-700' :
-                                                            'bg-slate-100 text-slate-600'
-                                                        }`}>
-                                                            {p.cat}
-                                                        </span>
-                                                    </td>
-                                                    <td className="p-10 text-right font-black text-blue-700 text-3xl tracking-tighter tabular-nums">{p.price.toFixed(2)} €</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'rappel' && (
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                                <div className="bg-white p-12 rounded-[60px] border border-slate-100">
-                                    <h3 className="font-black text-2xl text-slate-900 mb-12 tracking-tight flex items-center gap-4 uppercase">
-                                        <Icon name="award" size={24} className="text-blue-600" /> Escalado Rappel 2026
-                                    </h3>
-                                    <div className="space-y-4">
-                                        {rappelScale.map((r, i) => (
-                                            <div key={i} className={`p-8 rounded-[32px] flex justify-between items-center border-2 transition-all duration-500 ${simulatedSales >= r.limit ? 'bg-emerald-50 border-emerald-100 text-emerald-900 shadow-xl shadow-emerald-100/50' : 'bg-white border-slate-50 text-slate-200'}`}>
-                                                <span className="text-sm font-black uppercase tracking-widest">≥ {r.limit.toLocaleString()} €</span>
-                                                <span className={`font-black text-3xl tabular-nums ${simulatedSales >= r.limit ? 'text-emerald-500' : 'text-slate-100'}`}>{(r.rate * 100).toFixed(1)}%</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="space-y-10">
-                                    <div className="bg-slate-900 p-14 rounded-[70px] text-white shadow-2xl relative overflow-hidden group">
-                                        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] -mr-32 -mt-32"></div>
-                                        <p className="text-slate-500 text-xs font-black uppercase tracking-[0.4em] mb-8 text-center">Simulador Anual</p>
-                                        <div className="text-center mb-16">
-                                            <h2 className="text-8xl font-black tracking-tighter tabular-nums leading-none">{simulatedSales.toLocaleString()} <span className="text-3xl font-normal text-slate-700">€</span></h2>
-                                        </div>
-                                        <input type="range" min="100000" max="2500000" step="50000" value={simulatedSales} onChange={(e) => setSimulatedSales(Number(e.target.value))}
-                                            className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer mb-20" />
-                                        <div className="grid grid-cols-2 gap-12 pt-14 border-t border-slate-800/50">
-                                            <div>
-                                                <p className="text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">Abono Rappel</p>
-                                                <p className="text-5xl font-black text-emerald-400 tabular-nums tracking-tighter">{rappelAmount.toLocaleString()} €</p>
-                                            </div>
-                                            <div className="text-right">
-                                                <p className="text-slate-600 text-[11px] font-black uppercase tracking-widest mb-4">Porcentaje</p>
-                                                <p className="text-5xl font-black text-blue-500 tabular-nums tracking-tighter">{(currentRappel.rate * 100).toFixed(1)}%</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="bg-blue-600 p-10 rounded-[50px] text-white shadow-2xl shadow-blue-200">
-                                        <div className="flex gap-8 items-start">
-                                            <div className="p-4 bg-white/10 rounded-[24px]">
-                                                <Icon name="info" size={24} />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-black text-lg uppercase tracking-widest mb-3 text-white">Bonus por Clínica</h4>
-                                                <p className="text-sm text-blue-100 leading-relaxed font-bold">
-                                                    Se aplicará un rappel extra acumulativo de hasta el 5,50% si el centro individual supera los 150.000 € anuales de consumo neto.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                );
-            };
-
-            const rootElement = document.getElementById('root');
-            if (rootElement) {
-                const root = ReactDOM.createRoot(rootElement);
-                root.render(<App />);
-            }
+        // INICIALIZAR LIBRERÍAS
+        window.onload = function() {
+            lucide.createIcons();
+            initChart();
+            renderProducts();
         };
 
-        // Verificamos periódicamente si las librerías están listas
-        // He añadido un temporizador de seguridad que fuerza el error si tarda demasiado
-        let attempts = 0;
-        const checkLibs = setInterval(() => {
-            attempts++;
-            if (window.React && window.ReactDOM && window.Recharts && window.lucide) {
-                clearInterval(checkLibs);
-                startApp();
+        // GESTIÓN DE PESTAÑAS
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('active', 'text-white');
+                b.classList.add('text-slate-400');
+            });
+            
+            document.getElementById(id).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + id);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+        // GRÁFICOS
+        function initChart() {
+            const ctx = document.getElementById('chartObjectives').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pseudofáquicas', 'Fáquicas', 'Viscoelásticos'],
+                    datasets: [
+                        { label: 'Total Grupo', data: [26500, 2200, 38000], backgroundColor: '#f1f5f9', borderRadius: 10 },
+                        { label: 'Objetivo Biotech', data: [2500, 150, 3500], backgroundColor: '#2563eb', borderRadius: 10 }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { grid: { display: false }, border: { display: false }, ticks: { font: { weight: 'bold', family: 'Inter' } } }
+                    }
+                }
+            });
+        }
+
+        // PRODUCTOS
+        function renderProducts() {
+            const list = document.getElementById('product-list');
+            list.innerHTML = products.map(p => `
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="p-6">
+                        <div class="font-black text-slate-800 text-sm uppercase">${p.name}</div>
+                        <div class="text-[10px] text-slate-400 font-bold uppercase">${p.desc}</div>
+                    </td>
+                    <td class="p-6 text-right font-black text-blue-700 text-xl">${p.price.toFixed(2)} €</td>
+                </tr>
+            `).join('');
+        }
+
+        // SIMULADOR
+        function updateSimulator(val) {
+            const value = parseInt(val);
+            document.getElementById('sales-display').innerText = value.toLocaleString() + ' €';
+            
+            let rate = 0;
+            for (let i = rappelScale.length - 1; i >= 0; i--) {
+                if (value >= rappelScale[i].limit) {
+                    rate = rappelScale[i].rate;
+                    break;
+                }
             }
             
-            if (attempts > 60) { // 6 segundos de tiempo de espera
-                const errorHint = document.getElementById('error-hint');
-                if (errorHint) errorHint.classList.remove('hidden');
-                clearInterval(checkLibs);
-            }
-        }, 100);
+            document.getElementById('rappel-percent').innerText = (rate * 100).toFixed(1) + '%';
+            document.getElementById('rappel-cash').innerText = (value * rate).toLocaleString() + ' €';
+        }
     </script>
 </body>
 </html>
