@@ -54,7 +54,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 10px 14px;
-            font-size: 16px; /* Evita zoom automático en iOS */
+            font-size: 16px; 
             outline: none;
             transition: all 0.2s;
             width: 100%;
@@ -135,7 +135,6 @@
                 <button onclick="showTab('logistic')" id="btn-logistic" class="nav-btn px-4 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Logística</button>
                 <button onclick="showTab('training')" id="btn-training" class="nav-btn px-4 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Formación</button>
                 <button onclick="showTab('marketing')" id="btn-marketing" class="nav-btn px-4 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Marketing</button>
-                <button onclick="showTab('clinical')" id="btn-clinical" class="nav-btn px-4 md:px-6 py-2.5 rounded-xl text-[10px] md:text-xs font-bold text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap">Estudios Clínicos</button>
             </nav>
         </header>
 
@@ -417,9 +416,8 @@
                             <div><label class="form-label">Fecha de Recogida</label><input type="date" id="return-date" required class="font-bold"></div>
                         </div>
                         <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
-                            <label class="form-label text-blue-600 font-black">Escaneo de Series (Pistola o Móvil)</label>
-                            <textarea id="return-serials" rows="4" placeholder="Haga clic aquí y escanee las series..." required class="text-sm font-mono bg-white"></textarea>
-                            <button type="button" onclick="simulateScan('QR')" class="w-full mt-3 bg-white border border-slate-200 py-3 rounded-xl text-[10px] font-black uppercase hover:bg-blue-50 flex items-center justify-center gap-2 transition-colors"><i data-lucide="camera" size="16"></i> Activar Cámara</button>
+                            <label class="form-label text-blue-600 font-black">Números de Serie (Manual)</label>
+                            <textarea id="return-serials" rows="6" placeholder="Introduzca los números de serie..." required class="text-sm font-mono bg-white"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-emerald-600 transition-all uppercase text-[11px] tracking-widest flex items-center justify-center gap-4">
                             <i data-lucide="truck"></i> Solicitar Recogida
@@ -496,11 +494,11 @@
                                 <input type="number" id="qty-gorros" placeholder="Cant" class="w-16 text-center text-xs py-2 border-slate-200 rounded-lg">
                             </div>
                             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-                                <label class="text-xs font-black flex items-center gap-3 cursor-pointer"><input type="checkbox" name="mkt-item" value="Maqueta de ojos" class="w-5 h-5 rounded"> Maqueta</label>
+                                <label class="text-xs font-black flex items-center gap-3 cursor-pointer"><input type="checkbox" name="mkt-item" value="Maqueta de ojos" class="w-5 h-5 rounded"> Maqueta Ojo</label>
                                 <input type="number" id="qty-maqueta" placeholder="Cant" class="w-16 text-center text-xs py-2 border-slate-200 rounded-lg">
                             </div>
                             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-                                <label class="text-xs font-black flex items-center gap-3 cursor-pointer"><input type="checkbox" name="mkt-item" value="Material Web" class="w-5 h-5 rounded"> Web</label>
+                                <label class="text-xs font-black flex items-center gap-3 cursor-pointer"><input type="checkbox" name="mkt-item" value="Material Web" class="w-5 h-5 rounded"> Material para web</label>
                                 <input type="number" id="qty-web" placeholder="Cant" class="w-16 text-center text-xs py-2 border-slate-200 rounded-lg">
                             </div>
                         </div>
@@ -509,55 +507,6 @@
                 </form>
             </div>
             <div id="confidential-footer-marketing" class="confidential-card"></div>
-        </div>
-
-        <!-- PESTAÑA 6: ESTUDIOS CLÍNICOS -->
-        <div id="clinical" class="tab-content space-y-10 animate-in">
-             <div class="bg-white p-6 md:p-12 rounded-[40px] shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px] -mr-32 -mt-32"></div>
-                <div class="relative z-10">
-                    <div class="flex flex-col lg:flex-row justify-between items-start gap-10 mb-10 border-b border-slate-100 pb-10">
-                        <div class="max-w-3xl">
-                            <h4 class="font-black text-2xl md:text-3xl text-slate-900 uppercase mb-6">Investigación Clínica Biotech</h4>
-                            <p class="text-sm text-slate-600 font-bold italic mb-6">Apoyamos la generación de evidencia científica. Biotech asume la carga técnica y administrativa.</p>
-                            <div class="p-4 bg-amber-50 border border-amber-100 rounded-2xl mb-6">
-                                <p class="text-[9.5px] font-bold text-amber-700 uppercase flex items-center gap-2"><i data-lucide="info" class="w-4 h-4 shrink-0"></i> Nota: Todos los proyectos presentados se consideran estudios no remunerados.</p>
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-80 bg-slate-900 text-white p-6 rounded-[32px] shadow-2xl">
-                            <h5 class="text-[8.5px] font-black uppercase text-blue-400 mb-4 tracking-widest">Director Científico</h5>
-                            <p class="text-xl font-black mb-1">Arturo Corroto</p>
-                            <a href="mailto:Arturo.Cuadrado@biotechhealthcare.com" class="text-[10px] block font-bold text-slate-400 mb-6 underline truncate">Arturo.Cuadrado@biotechhealthcare.com</a>
-                            <div class="flex flex-col gap-3">
-                                <a href="tel:+34616166926" class="flex items-center gap-3 bg-white/10 px-4 py-3 rounded-xl text-xs font-black hover:bg-white/20 transition-colors"><i data-lucide="phone" size="16"></i> +34 616 16 69 26</a>
-                                <a href="https://wa.me/34616166926" target="_blank" class="flex items-center gap-3 bg-green-600/20 border border-green-500/30 px-4 py-3 rounded-xl text-xs font-black hover:bg-green-600 transition-colors"><i data-lucide="message-circle" size="16" class="text-green-400"></i> WhatsApp Arturo</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form onsubmit="event.preventDefault(); submitClinicalStudy();" class="bg-slate-50 p-6 md:p-8 rounded-[32px] border border-slate-200">
-                        <h4 class="text-lg font-black uppercase text-slate-800 mb-6">Solicitud de Inicio de Estudio</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <div class="space-y-4">
-                                <div><label class="form-label">Centro / Clínica</label><input type="text" id="study-center" required class="bg-white font-bold"></div>
-                                <div><label class="form-label">Investigador Principal</label><input type="text" id="study-doctor" required class="bg-white font-bold"></div>
-                            </div>
-                            <div class="space-y-4">
-                                <div>
-                                    <label class="form-label">Línea de Interés Clínico</label>
-                                    <div class="flex gap-4">
-                                        <label class="flex-1 bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-2 font-bold text-xs cursor-pointer"><input type="radio" name="study-topic" value="Fáquicas" required> Fáquicas</label>
-                                        <label class="flex-1 bg-white p-4 rounded-xl border border-slate-200 flex items-center gap-2 font-bold text-xs cursor-pointer"><input type="radio" name="study-topic" value="Pseudofáquicas" required> Pseudo</label>
-                                    </div>
-                                </div>
-                                <div><label class="form-label">Observaciones</label><textarea id="study-details" rows="3" class="bg-white font-bold" placeholder="Especifique brevemente el objetivo..."></textarea></div>
-                            </div>
-                        </div>
-                        <button type="submit" class="w-full bg-emerald-600 text-white font-black py-5 rounded-2xl shadow-xl hover:bg-emerald-700 transition-all uppercase text-[11px] flex items-center justify-center gap-3 font-black"><i data-lucide="microscope" size="18"></i> Notificar Interés Científico</button>
-                    </form>
-                </div>
-            </div>
-            <div id="confidential-footer-clinical" class="confidential-card"></div>
         </div>
     </div>
 
@@ -590,32 +539,10 @@
             { cat: 'OPTIFLEX', name: 'Optiflex Trio Plus', price: 375.00, new: true, desc: 'Lente trifocal de última generación con óptica optimizada Glisten-Free.' },
             { cat: 'OPTIFLEX', name: 'Optiflex Xtense Comfort Plus', price: 375.00, new: true, desc: 'Lente EDOF (Rango Extendido) para una visión continua de alta calidad de lejos a cerca.' },
             { cat: 'EYECRYL', name: 'Eyecryl SERT', price: 105.00, desc: 'Monofocal asférica precargada en sistema de inyección automatizado.' },
-            { cat: 'EYECRYL', name: 'Eyecryl SERT Toric cyl 1', price: 200.00, desc: 'Corrección astigmática básica en sistema precargado de micro-incisión.' },
-            { cat: 'EYECRYL', name: 'Eyecryl SERT Toric otros cyls', price: 215.00, desc: 'Lente tórica precargada para cilindros superiores a 1.50D.' },
-            { cat: 'EYECRYL', name: 'Eyecryl Actv', price: 200.00, desc: 'Óptica asférica HD diseñada para mejorar la sensibilidad al contraste.' },
-            { cat: 'EYECRYL', name: 'Eyecryl Plus (hydrophobic not preloaded)', price: 45.00, desc: 'Lente hidrofóbica estándar de una pieza para carga manual.' },
-            { cat: 'EYECRYL', name: 'Eyecryl 600 (hydrophilic non preloaded)', price: 35.00, desc: 'Lente hidrofílica clásica con diseño de bordes cuadrados.' },
-            { cat: 'EYECRYL', name: 'Eyecryl Comfort NY (preloaded)', price: 55.00, desc: 'Monofocal precargada con filtro amarillo natural para protección macular.' },
             { cat: 'EYECRYL', name: 'Eyecryl Toric', price: 200.00, desc: 'Lente tórica para carga manual indicada en corrección de astigmatismo corneal.' },
             { cat: 'OVDs', name: 'Eyevisc 2% 2ml PFS', price: 7.70, desc: 'HPMC dispersivo de alta pureza para protección endotelial.' },
-            { cat: 'OVDs', name: 'Bio Hyalur 1ml PFS', price: 9.90, desc: 'Viscoelástico cohesivo estándar al 1% de hialuronato sódico.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Plus 1ml PFS', price: 10.80, desc: 'Cohesivo Plus con mayor peso molecular para mantenimiento de cámara.' },
-            { cat: 'OVDs', name: 'Bio Hyalur HV 1ml PFS', price: 12.00, desc: 'Hialuronato de Alta Viscosidad para casos quirúrgicos complejos.' },
-            { cat: 'OVDs', name: 'Bio Hyalur SV 1ml PFS', price: 12.50, desc: 'Super Viscosidad diseñado para fractura de núcleos duros.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Duo (10% and 24%) 1ml PFS', price: 20.00, desc: 'Pack combinado Cohesivo + Dispersivo para técnica de soft-shell.' },
-            { cat: 'OVDs', name: 'Bio Hyalur CS 1ml PFS', price: 23.00, desc: 'Fórmula con Condroitín Sulfato para máxima adhesión celular.' },
-            { cat: 'OVDs', name: 'Bio Hyalur LVD 1ml PFS', price: 24.50, desc: 'Viscoelástico dispersivo avanzado de baja viscosidad.' },
-            { cat: 'RETINA', name: 'Bio Blue 1ml PFS - SKU FG0275', price: 9.50, desc: 'Azul de Trypan premium para tinción de la cápsula anterior.' },
-            { cat: 'MISC', name: 'Biovision PMMA CTR (Clear)', price: 20.00, desc: 'Anillo de tensión capsular transparente.' },
-            { cat: 'MISC', name: 'Biovision PMMA CTR (Blue)', price: 20.00, desc: 'Anillo de tensión capsular azul para mayor visibilidad.' },
-            { cat: 'MISC', name: 'Iris Retractors', price: 40.00, desc: 'Set de 5 ganchos de iris estériles en estuche.' },
-            { cat: 'RETINA', name: 'BioBlue 90 Plus (ILM blue equivalent)', price: 45.00, desc: 'Tinción selectiva de la Membrana Limitante Interna.' },
-            { cat: 'RETINA', name: 'Bio Blue DUO (ILM ERM DUO equivalent)', price: 55.00, desc: 'Doble tinción para Limitante Interna y Membranas Epirretinianas.' },
-            { cat: 'RETINA', name: 'BioSil 10ml', price: 59.00, desc: 'Aceite de silicona ultrapuro de 1000 cSt o 5000 cSt.' },
-            { cat: 'RETINA', name: 'Biosil F 10ml', price: 59.00, desc: 'Aceite de silicona fluido de rápida inyección.' },
-            { cat: 'RETINA', name: 'Bio Octane', price: 65.00, desc: 'Perfluoroctano premium para reaplicación de retina.' },
-            { cat: 'RETINA', name: 'Bio Decaline', price: 65.00, desc: 'Perfluordecalina de alta densidad.' },
-            { cat: 'MISC', name: 'Bioring (par)', price: 265.00, desc: 'Anillo especializado para indentación escleral o vítrea.' }
+            { cat: 'OVDs', name: 'Bio Hyalur Duo 1ml PFS', price: 20.00, desc: 'Pack combinado Cohesivo + Dispersivo para técnica de soft-shell.' },
+            { cat: 'RETINA', name: 'Bio Blue DUO', price: 55.00, desc: 'Doble tinción ILM y Membranas Epirretinianas.' }
         ];
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -627,11 +554,8 @@
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             if (dateInput) dateInput.min = tomorrow.toISOString().split('T')[0];
-            const serialsTextarea = document.getElementById('return-serials');
-            if (serialsTextarea) {
-                serialsTextarea.addEventListener('keydown', function(e) { if(e.key === 'Enter') showFeedback(); });
-            }
-            ['overview', 'catalog', 'logistic', 'training', 'marketing', 'clinical'].forEach(id => {
+            
+            ['overview', 'catalog', 'logistic', 'training', 'marketing'].forEach(id => {
                 const footer = document.getElementById(`confidential-footer-${id}`);
                 if (footer) footer.innerHTML = confidentialityHTML;
             });
@@ -694,13 +618,6 @@
             if(feedback) { feedback.style.display = 'flex'; setTimeout(() => feedback.style.display = 'none', 3000); }
         }
 
-        function simulateScan(type) {
-            const textarea = document.getElementById('return-serials');
-            const randomSerial = (type === 'QR' ? 'QR-' : 'BC-') + Math.floor(100000 + Math.random() * 900000);
-            if(textarea) textarea.value = (textarea.value ? textarea.value + "\n" : "") + randomSerial;
-            showFeedback();
-        }
-
         function handleModeConstraints(mode) { if (mode === 'Online') document.getElementById('train-topic').value = 'Certificación'; }
         function handleTopicLogic(topic) { const container = document.getElementById('surgeon-name-container'); if(container) container.classList.toggle('hidden', topic !== 'Certificación'); }
 
@@ -723,12 +640,6 @@
             const items = Array.from(document.querySelectorAll('input[name="mkt-item"]:checked')).map(i => i.value).join(', ');
             const body = `MARKETING\nCentro: ${document.getElementById('mkt-centers').value}\nRef: ${document.getElementById('mkt-ref-person').value}\nMateriales: ${items}`;
             window.location.href = `mailto:sofia.gortari@biotechhealthcare.com?subject=Marketing Support&body=${encodeURIComponent(body)}`;
-        }
-
-        function submitClinicalStudy() {
-            const topic = document.querySelector('input[name="study-topic"]:checked')?.value;
-            const body = `ESTUDIO (NO REMUNERADO)\nCentro: ${document.getElementById('study-center').value}\nLinea: ${topic}`;
-            window.location.href = `mailto:Arturo.Cuadrado@biotechhealthcare.com?subject=Interes Estudio Clinico&body=${encodeURIComponent(body)}`;
         }
     </script>
 </body>
