@@ -13,7 +13,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; margin: 0; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        /* Botón de navegación activo */
         .nav-btn.active { background-color: #2563eb; color: white; box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2); }
         .animate-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -22,7 +21,6 @@
         .product-img { transition: transform 0.3s ease; }
         .product-img:hover { transform: scale(1.05); }
         
-        /* Estilos para los sliders */
         input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%;
@@ -35,14 +33,13 @@
         .bg-dark-sim { background: #0f172a; }
     </style>
 </head>
-<body class="p-4 md:p-10 pb-20">
+<body class="p-4 md:p-10 pb-20 text-slate-900">
 
     <div class="max-w-6xl mx-auto">
         <!-- CABECERA CORPORATIVA -->
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-8">
             <div class="flex flex-col gap-6">
                 <div class="logo-container">
-                    <!-- Logotipo Biotech Iberia -->
                     <img src="logo_biotech.png" alt="Biotech Iberia" onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');">
                     <div id="fallback-logo" class="hidden flex items-center gap-2 font-black text-3xl text-slate-800 tracking-tighter uppercase">
                         <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -62,7 +59,7 @@
             <!-- NAVEGACIÓN -->
             <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 overflow-x-auto no-scrollbar w-full lg:w-auto">
                 <button onclick="showTab('overview')" id="btn-overview" class="nav-btn active px-8 py-3 rounded-xl text-xs font-black transition-all uppercase whitespace-nowrap tracking-tight">Estrategia</button>
-                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight font-black">Tarifa 2026</button>
+                <button onclick="showTab('catalog')" id="btn-catalog" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight">Tarifa 2026</button>
                 <button onclick="showTab('tech')" id="btn-tech" class="nav-btn px-8 py-3 rounded-xl text-xs font-black text-slate-400 hover:bg-slate-50 transition-all uppercase whitespace-nowrap tracking-tight">Especificaciones</button>
             </div>
         </div>
@@ -131,7 +128,7 @@
                         <h2 id="group-display" class="text-5xl font-black mb-6 tracking-tighter tabular-nums text-white">750.000 €</h2>
                         <input type="range" id="group-slider" min="100000" max="2500000" step="50000" value="750000" oninput="updateGroupSim(this.value)" class="mb-10">
                         
-                        <div class="mt-auto grid grid-cols-2 gap-6 p-6 bg-white/5 rounded-3xl border border-white/10">
+                        <div class="mt-auto grid grid-cols-2 gap-6 p-6 bg-white/5 rounded-3xl border border-white/10 text-white">
                             <div>
                                 <p class="text-slate-500 text-[9px] font-black uppercase mb-1">Abono Grupo</p>
                                 <p id="group-cash" class="text-2xl font-black text-emerald-400 tracking-tighter">18.750 €</p>
@@ -145,40 +142,94 @@
                 </div>
             </div>
 
-            <!-- LOGÍSTICA + PRODUCTO ESTRELLA -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="bg-blue-600 p-10 rounded-[48px] text-white shadow-xl shadow-blue-100 flex flex-col justify-center relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-10 opacity-10">
-                        <i data-lucide="mail" size="100"></i>
-                    </div>
+            <!-- SOPORTE TÉCNICO Y COMERCIAL -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- PEDIDOS -->
+                <div class="bg-blue-600 p-10 rounded-[48px] text-white shadow-xl relative overflow-hidden flex flex-col justify-center">
+                    <div class="absolute top-0 right-0 p-10 opacity-10"><i data-lucide="shopping-bag" size="120"></i></div>
                     <div class="relative z-10">
-                        <h3 class="font-black text-xl uppercase tracking-tighter mb-4 flex items-center gap-2">
-                            <i data-lucide="shopping-cart" class="w-5 h-5"></i> Pedidos y Soporte
+                        <h3 class="font-black text-2xl uppercase tracking-tighter mb-6 flex items-center gap-3">
+                            <i data-lucide="shopping-cart"></i> Pedidos
                         </h3>
-                        <p class="text-blue-100 text-xs font-medium leading-relaxed mb-6">
-                            Tramitación de pedidos y soporte logístico especializado:
-                        </p>
-                        <div class="bg-white/10 p-5 rounded-3xl backdrop-blur-md border border-white/20">
-                            <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-[13px] font-black hover:underline tracking-tight break-all">pedidos.iberia@biotechhealthcare.com</a>
+                        <div class="bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/20">
+                            <p class="text-blue-100 text-[10px] font-black uppercase mb-2">Canal Logístico Directo</p>
+                            <a href="mailto:pedidos.iberia@biotechhealthcare.com" class="text-lg font-black hover:underline tracking-tight break-all">pedidos.iberia@biotechhealthcare.com</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- SOPORTE POR ZONAS -->
+                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
+                    <h3 class="font-black text-xl uppercase tracking-tight text-slate-800 mb-6 flex items-center gap-3">
+                        <i data-lucide="headset" class="text-blue-600"></i> Soporte Técnico por Zona
+                    </h3>
+                    <div class="space-y-4 text-xs font-medium">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-2">
+                            <div class="flex justify-between items-center"><span class="font-black text-blue-600 uppercase tracking-widest text-[9px]">Zona Sur</span></div>
+                            <p class="text-slate-800 font-bold">Juan Pérez Lanzac</p>
+                            <div class="flex gap-4 text-slate-500">
+                                <span class="flex items-center gap-1"><i data-lucide="phone" size="12"></i> +34 657 084 190</span>
+                                <a href="mailto:juanperez.lanzac@biotechhealthcare.com" class="hover:text-blue-600 truncate">juanperez.lanzac@biotechhealthcare.com</a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <span class="font-black text-blue-600 uppercase tracking-widest text-[9px] block mb-2">Norte y Centro</span>
+                                <p class="text-slate-800 font-bold mb-1">Ly García</p>
+                                <a href="mailto:ly.garcia@biotechhealthcare.com" class="text-slate-500 hover:text-blue-600 break-all">ly.garcia@biotechhealthcare.com</a>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <span class="font-black text-blue-600 uppercase tracking-widest text-[9px] block mb-2">Cataluña</span>
+                                <p class="text-slate-800 font-bold mb-1">Vanessa García / Marta Bautista</p>
+                                <a href="mailto:vanessa.garcia@biotechhealthcare.com" class="text-slate-500 hover:text-blue-600 break-all">vanessa.garcia@biotechhealthcare.com</a>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 flex justify-between items-center">
+                            <div>
+                                <span class="font-black text-indigo-600 uppercase tracking-widest text-[9px] block mb-1">Marketing</span>
+                                <p class="text-slate-800 font-bold">Sofía Gortari</p>
+                            </div>
+                            <a href="mailto:sofia.gortari@biotechhealthcare.com" class="text-indigo-600 font-black hover:underline">sofia.gortari@biotechhealthcare.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO ESTRELLA Y POLÍTICA DE DEVOLUCIONES -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-[48px] border border-slate-100 shadow-sm flex flex-col items-center justify-center text-center group">
-                    <div class="w-full h-40 flex items-center justify-center bg-slate-50 rounded-3xl mb-4 overflow-hidden border border-slate-50 p-4">
-                        <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic Lens" class="h-full w-auto object-contain product-img drop-shadow-lg">
+                    <div class="w-full h-40 flex items-center justify-center bg-slate-50 rounded-3xl mb-4 overflow-hidden p-4">
+                        <img src="phakic.jpg" alt="Eyecryl Phakic Lens" class="h-full w-auto object-contain product-img drop-shadow-lg" onerror="this.style.display='none'; document.getElementById('phakic-fallback-main').classList.remove('hidden');">
+                        <div id="phakic-fallback-main" class="hidden text-blue-100"><i data-lucide="circle-dot" size="64"></i></div>
                     </div>
                     <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Producto Estrella</p>
-                    <h4 class="font-black text-slate-800 text-base">Eyecryl Phakic</h4>
+                    <h4 class="font-black text-slate-800 text-base tracking-tight">Eyecryl Phakic</h4>
                 </div>
 
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col justify-center">
-                    <div class="flex gap-4 items-start">
-                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl shrink-0"><i data-lucide="shield-check" size="20"></i></div>
-                        <div>
-                            <h4 class="font-black text-xs uppercase text-slate-800 tracking-tight mb-2">Compromiso Biotech</h4>
-                            <p class="text-[11px] text-slate-400 font-medium leading-relaxed italic">
-                                Suministrador preferente de Innova Ocular con garantía de suministro y soporte clínico avanzado.
+                <!-- CONDICIONES COMERCIALES -->
+                <div class="lg:col-span-2 bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm">
+                    <h4 class="font-black text-sm uppercase text-slate-800 tracking-tight mb-4 flex items-center gap-2">
+                        <i data-lucide="info" class="text-amber-500"></i> Condiciones de Devolución y Compromiso
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="flex gap-3 items-start">
+                                <div class="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-[10px] font-bold">01</span></div>
+                                <p class="text-[11px] text-slate-500 leading-relaxed font-medium">
+                                    El plazo máximo para devoluciones es de <strong class="text-slate-800 font-bold">6 meses</strong> desde la fecha de entrega. Pasado este tiempo, el material no podrá ser abonado ni canjeado.
+                                </p>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <div class="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5 text-red-500"><span class="text-[10px] font-bold">!</span></div>
+                                <p class="text-[11px] text-slate-500 leading-relaxed font-medium">
+                                    Las lentes <strong class="text-slate-800 font-bold">Eyecryl Phakic Customizadas</strong>, por su naturaleza de fabricación exclusiva bajo pedido, <strong class="text-red-600 font-black italic uppercase">no admiten devolución bajo ningún concepto</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50/50 p-6 rounded-3xl border border-blue-100 flex flex-col justify-center">
+                            <h5 class="text-[10px] font-black text-blue-700 uppercase mb-2 tracking-widest">Recomendación Gestión de Agenda</h5>
+                            <p class="text-[11px] text-blue-900/70 font-medium italic leading-relaxed">
+                                "A fin de garantizar la optimización de los tiempos quirúrgicos y evitar cancelaciones imprevistas, se recomienda formalmente la solicitud de una reserva económica (señal) al paciente previo a la solicitud de la lente personalizada."
                             </p>
                         </div>
                     </div>
@@ -211,153 +262,61 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="p-6 bg-slate-50 text-center border-t">
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Precios unitarios netos. I.V.A. no incluido. Vigencia: Ejercicio 2026.</p>
+                <div class="p-6 bg-slate-50 text-center border-t text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                    Precios netos unitarios. IVA no incluido. Vigencia: Año Natural 2026.
                 </div>
             </div>
         </div>
 
-        <!-- PESTAÑA 3: ESPECIFICACIONES TÉCNICAS (DETALLADAS) -->
+        <!-- PESTAÑA 3: ESPECIFICACIONES TÉCNICAS -->
         <div id="tech" class="tab-content space-y-10 animate-in">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Ficha Eyecryl Phakic Avanzada -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm leading-relaxed">
+                <!-- Eyecryl Phakic avanzada -->
                 <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm relative overflow-hidden">
                     <div class="flex justify-between items-start mb-8 border-b pb-6 relative z-10">
                         <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Eyecryl Phakic</h4>
+                            <h4 class="font-black text-2xl text-slate-900 tracking-tight leading-tight">Eyecryl Phakic</h4>
                             <p class="text-blue-600 text-[10px] font-black uppercase tracking-widest mt-1">Corrección de Altas Ametropías</p>
                         </div>
-                        <img src="ChatGPT Image 3 feb 2026, 10_08_45.jpg" alt="Eyecryl Phakic" class="w-24 h-auto product-img drop-shadow-xl">
+                        <img src="phakic.jpg" alt="Eyecryl Phakic" class="w-24 h-auto product-img drop-shadow-xl" onerror="this.style.display='none'; document.getElementById('phakic-fallback-2').classList.remove('hidden');">
+                        <div id="phakic-fallback-2" class="hidden text-blue-200"><i data-lucide="circle-dot" size="48"></i></div>
                     </div>
                     <div class="space-y-6 relative z-10">
-                        <div class="p-5 bg-blue-50 rounded-3xl border border-blue-100 shadow-inner">
+                        <div class="p-5 bg-blue-50 rounded-3xl border border-blue-100">
                             <h5 class="text-[11px] font-black text-blue-700 uppercase mb-3 flex items-center gap-2">
-                                <i data-lucide="alert-triangle" class="w-3 h-3"></i> Requisitos de Seguridad (Mínimos)
+                                <i data-lucide="shield-check" class="w-3 h-3"></i> Seguridad Clínica
                             </h5>
                             <ul class="text-[11px] text-blue-900 space-y-2 font-medium">
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1 h-1 bg-blue-400 rounded-full"></span>
-                                    <strong>Cámara Anterior (ACD):</strong> Mínimo 2.8 mm (medido desde el endotelio).
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1 h-1 bg-blue-400 rounded-full"></span>
-                                    <strong>Diseño:</strong> Lente plegable biconvexa con puerto central.
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1 h-1 bg-blue-400 rounded-full"></span>
-                                    <strong>Miopía/Hipermetropía:</strong> Ambas incorporan puerto central central hole de 380μm.
-                                </li>
+                                <li>• <strong>ACD (desde endotelio):</strong> Mínimo 2.8 mm requerido.</li>
+                                <li>• <strong>Puerto Central:</strong> En modelos miópicos e hipermetrópicos.</li>
+                                <li>• <strong>Material:</strong> Acrílico hidrofílico biconvexo plegable.</li>
                             </ul>
                         </div>
-                        
-                        <div class="grid grid-cols-1 gap-3 text-[11px]">
-                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex justify-between items-center">
-                                <span class="font-black uppercase text-slate-400">Baja Potencia (Esf/Tor)</span>
-                                <span class="font-bold text-slate-800">+2.75D a -6.00D</span>
-                            </div>
-                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex justify-between items-center">
-                                <span class="font-black uppercase text-slate-400">Alta Potencia (SPH/TOR)</span>
-                                <span class="font-bold text-slate-800">Hasta -25D / +10D (Cil hasta +5D)</span>
-                            </div>
-                            <div class="p-4 bg-indigo-50/50 rounded-xl flex flex-col gap-2 border border-indigo-100">
-                                <span class="font-black uppercase text-indigo-600 tracking-widest">Customizada (Criterios Especiales)</span>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <p class="text-[9px] font-black text-indigo-400 uppercase">Tallas</p>
-                                        <p class="font-bold text-indigo-700">11.0 / 11.5 / 14.0 / 14.5 / 15.0 mm</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-[9px] font-black text-indigo-400 uppercase">Graduación</p>
-                                        <p class="font-bold text-indigo-700">Esferas > +10D / < -25D o Cil > +5D</p>
-                                    </div>
-                                </div>
+                        <div class="grid grid-cols-1 gap-2 text-[10px]">
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex justify-between items-center"><span class="font-black uppercase text-slate-400">Baja Potencia</span><span class="font-bold text-slate-800">+2.75D a -6.00D</span></div>
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex justify-between items-center"><span class="font-black uppercase text-slate-400">Alta Potencia SPH</span><span class="font-bold text-slate-800">+3D a +10D | -6.50D a -25D</span></div>
+                            <div class="p-4 bg-indigo-50/50 rounded-xl border border-indigo-100">
+                                <span class="font-black uppercase text-indigo-600 tracking-widest text-[9px] block mb-1">Customizada</span>
+                                <p class="text-[10px] text-indigo-500 font-semibold leading-tight">• Tallas 11 / 11.5 / 14 / 14.5 / 15mm. • Cilindros > +5D.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ficha Optiflex Xtense Técnica -->
+                <!-- Optiflex Xtense técnica -->
                 <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col">
                     <div class="flex justify-between items-start mb-8 border-b pb-6">
                         <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Optiflex Xtense</h4>
-                            <p class="text-amber-600 text-[10px] font-black uppercase tracking-widest mt-1">Continuous Vision IOL Technology</p>
+                            <h4 class="font-black text-2xl text-slate-900 tracking-tight leading-tight">Optiflex Xtense</h4>
+                            <p class="text-amber-600 text-[10px] font-black uppercase tracking-widest mt-1">Continuous Vision Technology</p>
                         </div>
                         <i data-lucide="infinity" class="text-amber-600" size="32"></i>
                     </div>
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-slate-50 rounded-3xl border border-slate-100">
-                                <p class="text-[9px] font-black text-slate-400 uppercase">Rango EDOF</p>
-                                <p class="text-xs font-bold text-slate-800">1.5D de Visión Continua real</p>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-3xl border border-slate-100">
-                                <p class="text-[9px] font-black text-slate-400 uppercase">Material</p>
-                                <p class="text-xs font-bold text-slate-800">Hydrophobic Glisten-free</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 text-[12px] font-medium text-slate-600">
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Óptica asférica aberración cero: Mayor sensibilidad al contraste.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Tecnología no difractiva: Elimina efectos disfotópticos (halos).</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Longitud total: 13.0 mm / Diámetro óptica: 6.0 mm.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Ficha Optiflex Trio Técnica -->
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col">
-                    <div class="flex justify-between items-start mb-8 border-b pb-6">
-                        <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Optiflex Trio / Plus</h4>
-                            <p class="text-indigo-600 text-[10px] font-black uppercase tracking-widest mt-1">Trifocal Difractiva Hidrofóbica</p>
-                        </div>
-                        <i data-lucide="layers" class="text-indigo-600" size="32"></i>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="p-5 bg-slate-900 rounded-3xl text-white">
-                            <h5 class="text-[10px] font-black uppercase mb-3 text-slate-400">Reparto de Energía Lumínica</h5>
-                            <div class="flex justify-between items-center text-center">
-                                <div><p class="text-xl font-black">50%</p><p class="text-[8px] uppercase">Lejos</p></div>
-                                <div class="w-px h-8 bg-slate-800"></div>
-                                <div><p class="text-xl font-black">25%</p><p class="text-[8px] uppercase">Intermedia</p></div>
-                                <div class="w-px h-8 bg-slate-800"></div>
-                                <div><p class="text-xl font-black">25%</p><p class="text-[8px] uppercase">Cerca</p></div>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 text-[12px] font-medium text-slate-600">
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Óptica difractiva posterior para reducir los reflejos internos.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Filtro de luz azul integrado para protección macular.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Borde cuadrado de 360° para prevenir eficazmente la PCO.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Ficha Optiflex Sert Técnica -->
-                <div class="bg-white p-10 rounded-[48px] border border-slate-100 shadow-sm flex flex-col">
-                    <div class="flex justify-between items-start mb-8 border-b pb-6">
-                        <div>
-                            <h4 class="font-black text-2xl text-slate-900 tracking-tight">Optiflex Sert</h4>
-                            <p class="text-emerald-600 text-[10px] font-black uppercase tracking-widest mt-1">Precargada de Entrega Automatizada</p>
-                        </div>
-                        <i data-lucide="box" class="text-emerald-600" size="32"></i>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-slate-50 rounded-3xl border border-slate-100">
-                                <p class="text-[9px] font-black text-slate-400 uppercase">Incisión</p>
-                                <p class="text-xs font-bold text-slate-800">Mínima de 2.2 mm</p>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-3xl border border-slate-100">
-                                <p class="text-[9px] font-black text-slate-400 uppercase">Sistema</p>
-                                <p class="text-xs font-bold text-slate-800">Automated One-Step</p>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 text-[12px] font-medium text-slate-600">
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Inserción suave y controlada que evita daños capsulares.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Óptica HD asférica para una agudeza visual nítida.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Disponible en portafolio EDOF y Monofocal asférica.</li>
-                        </ul>
-                    </div>
+                    <ul class="space-y-4 text-[12px] font-medium text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> 1.5D de Visión Continua (Lejos a Intermedia).</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Tecnología no difractiva: Visión libre de halos.</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="text-emerald-500 w-4 h-4 shrink-0"></i> Material Hidrofóbico Glisten-free.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -371,41 +330,23 @@
             { limit: 1750000, rate: 0.045 }, { limit: 2000000, rate: 0.050 }
         ];
 
-        // TARIFA COMPLETA ACUERDO 2026
         const products = [
-            // PHAKIC - ORDEN SOLICITADO
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic baja potencia (esf/tor)', price: 500.00, desc: 'Rango +2.75D a -6.00D (cil hasta +5D). Puerto central incluido.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (sph)', price: 550.00, desc: 'Extrema: +3D/+10D y -6.50D/-25D. Con puerto central central hole.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (tor)', price: 860.00, desc: 'Corrección de astigmatismo en rangos extremos con cilindros de hasta +5D.' },
-            { cat: 'PHAKIC', name: 'Eyecryl Phakic Custom', price: 1275.00, desc: 'A medida: Tallas 11 a 15mm o graduaciones fuera de rango estándar.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic baja potencia (esf/tor)', price: 500.00, desc: 'Rango +2.75D a -6.00D. ACD mín. 2.8mm. Incluye puerto central.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (sph)', price: 550.00, desc: 'Extrema: +3D a +10D y -6.50D a -25D. Con puerto central.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic alta potencia (tor)', price: 860.00, desc: 'Corrección de astigmatismo elevado con cilindros de hasta +5D.' },
+            { cat: 'PHAKIC', name: 'Eyecryl Phakic Custom', price: 1275.00, desc: 'Lente personalizada: Tallas 11 a 15mm o graduaciones fuera de rango.' },
             
-            // PREMIUM
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio 3FLA6', price: 300.00, desc: 'Difractiva HD. Reparto lumínico equilibrado 50/25/25 para independencia de gafas.' },
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio TORICA', price: 400.00, desc: 'Trifocalidad combinada con corrección precisa del astigmatismo corneal.' },
-            { cat: 'TRIFOCAL', name: 'Optiflex Trio Plus', price: 375.00, desc: 'Nueva generación material hidrofóbico brillante sin vacuolas.' },
-            { cat: 'EDOF', name: 'Optiflex Xtense Comfort Plus', price: 375.00, desc: 'Visión continua (1.5D de rango). Tecnología no difractiva cero halos.' },
-            { cat: 'EDOF', name: 'Eyecryl SERT', price: 105.00, desc: 'EDOF precargada. Sistema de inyección automatizado para incisión 2.2mm.' },
-            
-            // MONOFOCAL Y OTROS
-            { cat: 'EDOF', name: 'Eyecryl SERT Toric cyl 1', price: 200.00, desc: 'EDOF tórica precargada para corrección de astigmatismo leve.' },
-            { cat: 'MULTIFOCAL', name: 'Eyecryl Actv', price: 200.00, desc: 'Bifocal difractiva para visión nítida de lejos y cerca.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Comfort NY (preloaded)', price: 55.00, desc: 'Monofocal asférica de alta resolución con inyección automática.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Plus (hydrophobic not preloaded)', price: 45.00, desc: 'Material hidrofóbico glisten-free de gran estabilidad capsular.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl 600 (hydrophilic non preloaded)', price: 35.00, desc: 'Monofocal hidrofílica estándar de alto rendimiento.' },
-            { cat: 'MONOFOCAL', name: 'Eyecryl Toric', price: 200.00, desc: 'Monofocal tórica para corrección precisa del astigmatismo.' },
-
-            // OVDs
-            { cat: 'OVDs', name: 'Eyevisc 2% 2ml PFS', price: 7.70, desc: 'Viscoelástico dispersivo basado en HPMC al 2%.' },
-            { cat: 'OVDs', name: 'Bio Hyalur 1ml PFS', price: 9.90, desc: 'Hialuronato sódico 1%. Protección endotelial superior.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Plus 1ml PFS', price: 10.80, desc: 'Hialuronato sódico 1.4%. Mantenimiento superior de cámara.' },
-            { cat: 'OVDs', name: 'Bio Hyalur Duo', price: 20.00, desc: 'Combinado Cohesivo (10%) + Dispersivo (24%) para protección total.' },
-
-            // VR / OTROS
-            { cat: 'VR', name: 'BioBlue 90 Plus', price: 45.00, desc: 'Colorante premium para visualización de membrana limitante interna (ILM).' },
-            { cat: 'BIORING', name: 'Bioring (par)', price: 265.00, desc: 'Anillos intraestromales para tratamiento quirúrgico de queratocono.' }
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio 3FLA6', price: 300.00, desc: 'Reparto energético 50/25/25 para independencia total de gafas.' },
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio TORICA', price: 400.00, desc: 'Trifocalidad asférica con corrección de astigmatismo corneal.' },
+            { cat: 'TRIFOCAL', name: 'Optiflex Trio Plus', price: 375.00, desc: 'Material hidrofóbico avanzado libre de vacuolas.' },
+            { cat: 'EDOF', name: 'Optiflex Xtense Comfort Plus', price: 375.00, desc: 'Tecnología EDOF no difractiva. Visión continua real y cero halos.' },
+            { cat: 'EDOF', name: 'Eyecryl SERT', price: 105.00, desc: 'EDOF precargada. Sistema de inyección automatizado (incisión 2.2mm).' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl Comfort NY (preloaded)', price: 55.00, desc: 'Monofocal asférica de alta resolución en sistema precargado.' },
+            { cat: 'MONOFOCAL', name: 'Eyecryl Plus (hydrophobic non preloaded)', price: 45.00, desc: 'Material hidrofóbico glisten-free de gran estabilidad capsular.' },
+            { cat: 'OVDs', name: 'Bio Hyalur Duo', price: 20.00, desc: 'Pack Cohesivo (10%) + Dispersivo (24%) para protección total.' },
+            { cat: 'VR', name: 'BioBlue 90 Plus', price: 45.00, desc: 'Colorante premium para visualización de membrana limitante interna.' }
         ];
 
-        // INICIALIZACIÓN
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
             renderProducts();
@@ -413,7 +354,6 @@
             updateGroupSim(750000);
         });
 
-        // NAVEGACIÓN
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => {
@@ -427,7 +367,6 @@
             lucide.createIcons();
         }
 
-        // SIMULADORES
         function updateCenterSim(val) {
             const sales = parseInt(val);
             document.getElementById('center-display').innerText = sales.toLocaleString() + ' €';
@@ -456,11 +395,11 @@
             list.innerHTML = products.map(p => `
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-8">
-                        <div class="font-black text-slate-800 uppercase tracking-tight">${p.name}</div>
+                        <div class="font-black text-slate-800 uppercase tracking-tight text-xs leading-tight">${p.name}</div>
                         <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-[9px] font-black uppercase tracking-tighter">${p.cat}</span>
                     </td>
                     <td class="p-8">
-                        <div class="text-[11px] text-slate-500 font-medium leading-relaxed tracking-tight">${p.desc}</div>
+                        <div class="text-[11px] text-slate-500 font-medium leading-relaxed tracking-tight max-w-xs">${p.desc}</div>
                     </td>
                     <td class="p-8 text-right font-black text-blue-700 text-2xl tracking-tighter tabular-nums">${p.price.toFixed(2)} €</td>
                 </tr>
